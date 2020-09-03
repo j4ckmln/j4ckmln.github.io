@@ -23,7 +23,7 @@ baseurl : # does not include hostname
 title   : Your Site Title
 description: > # this means to ignore newlines until "Language & timezone"
   Your Site Description
-theme: jekyll-text-theme
+remote-theme: jekyll-text-theme
 
 
 ## => Language and Timezone
