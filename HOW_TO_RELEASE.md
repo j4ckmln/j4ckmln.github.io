@@ -12,8 +12,6 @@
 ## Publishing
 
 - run `npm run gem-build` to build gem
-- run `npm run gem-push` to publish gem to rubygems.org
 - run `git add . && git commit -m  "release: vx.x.x"` to make a release commit
-- run `git tag vx.x.x` to add a tag
-- run `git push && git push origin vx.x.x` to push
+- run `git push origin :gh-pages` to push
 - edit release on github.com

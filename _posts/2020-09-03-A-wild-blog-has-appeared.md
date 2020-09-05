@@ -1,11 +1,14 @@
 ---
 layout: article
-title: A wild blog has appeared
+title: A wild blog has appeared!
 author: Jennifer Torres
 sharing: true
+aside:
+  toc: true
 header:
   theme: dark
   background: 'linear-gradient(135deg, rgb(0, 0, 0), rgb(0, 0, 0))'
+
 ---
 <br>
 <div class="hero hero--dark" style='height: 300px; background-image: url("../../../assets/images/headers/dark-woman-header.png");'>
@@ -14,8 +17,10 @@ header:
 </div>
 <br>
 
-This is a personal blog to share all random things that I could think xD
+Tras mucho tiempo dándole vueltas...
 
-In this blog I will share anything I can think of about hacking (this in particular), programming and computing in general
+<img class="image image--md" src="https://media.giphy.com/media/4wz64e6eQxGKY/giphy.gif"/>
 
-The blog is still under construction... this is coming out soon :)
+Ha aparecido este blog! :metal: 
+
+Aquí irán apareciendo artículos de seguridad (pentesting, red team, etc etc), compartiré distintos trucos de seguridad, cheatsheets, curiosidades y cualquier locura que se me ocurra :new_moon_with_face:

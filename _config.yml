@@ -20,9 +20,9 @@ text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate"
 highlight_theme: tomorrow-night-bright # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
 url     : https://j4ckmln.github.io # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : # does not include hostname
-title   : j4ckmln geek cave
+title   : HAAL
 description: > # this means to ignore newlines until "Language & timezone"
-  Hacking as a lifestyle
+  Hacking As A Lifestyle
 remote-theme: jekyll-text-theme
 
 
@@ -170,11 +170,11 @@ search:
 ## => Analytics
 ##############################
 analytics:
-  provider: false # false (default), "google", "custom"
+  provider: google # false (default), "google", "custom"
 
   ## Google Analytics
   google:
-    tracking_id : # Google Analytics id for the site
+    tracking_id : G-PS3NE5XGW9 # Google Analytics id for the site
     anonymize_ip: false # Anonymize IP tracking for Analytics
 
 
@@ -215,6 +215,9 @@ defaults:
       show_edit_on_github: true
       show_subscribe: true
       pageview: true
+      header:
+        theme: dark
+        background: 'linear-gradient(135deg, rgb(0, 0, 0), rgb(0, 0, 0))'
 
 
 ## => Plugins
