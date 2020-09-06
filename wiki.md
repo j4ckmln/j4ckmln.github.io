@@ -10,6 +10,47 @@ header:
   background: black
 ---
 
+<h1>Menú</h1>
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Pentesting</div>
+</div>
+<table class="table-full">
+<tr>
+<td class="td-black"><b></b></td>
+<td><a href="/wiki/osint">OSINT</a></td>
+</tr>
+<tr>
+<td class="td-black"><b></b></td>
+<td><a href="/wiki/enumeracion">Enumeración</a></td>
+</tr>
+<tr>
+<td class="td-black"><b></b></td>
+<td><a href="/wiki/enumeracion-con-metasploit">Enumeración con metasploit</a></td>
+</tr>
+<tr>
+<td class="td-black"><b></b></td>
+<td><a href="/wiki/fuerza-bruta">Fuerza bruta</a></td>
+</tr>
+<tr>
+<td class="td-black"><b></b></td>
+<td><a href="/wiki/ataques-web">Ataques a aplicaciones web</a></td>
+</tr>
+</table>
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">General</div>
+</div>
+<table class="table-full">
+<tr>
+<td class="td-black"><b></b></td>
+<td><a href="/wiki/general">Definiciones generales</a></td>
+</tr>
+<tr>
+<td class="td-black"><b></b></td>
+<td><a href="/wiki/random">Random</a></td>
+</tr>
+</table>
+
 
 <h1>Recursos varios</h1>
 

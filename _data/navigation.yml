@@ -59,6 +59,8 @@ side:
     children:
       - title: "Definiciones generales"
         url: /wiki/general
+      - title: "Random"
+        url: /wiki/random
   - title: Pentesting
     children:
       - title: "OSINT"
