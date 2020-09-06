@@ -10,12 +10,6 @@ header:
   background: black
 ---
 
-<style>
-.img-custom{
-    width: 30rem;
-}
-</style>
-
 <h2><b>Configuración</b></h2>
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Instalación de metasploit</div>
@@ -62,10 +56,7 @@ Para comprobar si se ha iniciado correctamente, ejecutamos:
 msfconsole -q -x db_status
 ~~~
 
-<img class="image img-custom" src="/resources/output-images/db_status-code.png"/>
-
-
-<table class="table-full">
+<table>
 <tr>
 <td class="td-black"><b>-q</b></td>
 <td>No muestra el banner de metasploit</td>
@@ -233,3 +224,8 @@ msf> services -p 27017,27018 -R
 
 [https://red-orbita.com/?p=9002&utm_source=rss&utm_medium=rss&utm_campaign=guia-basica-para-pentesting-de-un-entorno-sap](https://red-orbita.com/?p=9002&utm_source=rss&utm_medium=rss&utm_campaign=guia-basica-para-pentesting-de-un-entorno-sap)
 
+<h2>Recursos adicionales</h2>
+
+[https://bitvijays.github.io/LFF-IPS-P2-VulnerabilityAnalysis.html#id3](https://bitvijays.github.io/LFF-IPS-P2-VulnerabilityAnalysis.html#id3)
+
+[https://fwhibbit.es/auditando-un-servidor-smtp](https://fwhibbit.es/auditando-un-servidor-smtp)

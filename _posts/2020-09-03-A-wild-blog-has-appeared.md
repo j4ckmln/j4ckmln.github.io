@@ -39,8 +39,3 @@ Aquí irán apareciendo artículos de seguridad (pentesting, red team, etc etc),
     </div>
   </div>
 </div>
-
-
-
-
-
