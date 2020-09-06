@@ -7,6 +7,12 @@ article_header:
   align: center
   height: 80vh
 ---
+<div class="layout--home">
+  {%- include paginator.html -%}
+</div>
+<script>
+  {%- include scripts/home.js -%}
+</script>
 <div class="layout--landing">
   <div class="heros">
   {%- for _section in page.data.sections -%}

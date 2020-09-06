@@ -3,8 +3,8 @@ default:
   highlight_theme: tomorrow-night-bright
   lang: es
   paths:
-    root: /
-    home: /
+    root: /index.html
+    home: /index.html
     archive:  /archive.html
     rss:  /feed.xml
   mathjax: false

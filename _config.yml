@@ -11,20 +11,16 @@
 #    |  |  \   --. /  .'.  \  |  |
 #    `--'   `----''--'   '--' `--'
 
-
-
-
 ## => Site Settings
 ##############################
 text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
-highlight_theme: tomorrow-night-bright # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
+highlight_theme: tomorrow-night-eighties # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
 url     : https://j4ckmln.github.io # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : # does not include hostname
-title   : HAAL
+title   : j4ckmln hacking blog
 description: > # this means to ignore newlines until "Language & timezone"
   Hacking As A Lifestyle
 remote-theme: jekyll-text-theme
-
 
 ## => Language and Timezone
 ##############################
@@ -63,8 +59,8 @@ repository_tree: master
 ## => Paths
 ##############################
 paths:
-  root    : # title link url, "/" (default)
-  home    : # home layout url, "/" (default)
+  root    : root.html # title link url, "/" (default)
+  home    : root.html # home layout url, "/" (default)
   archive : # "/archive.html" (default)
   rss     : # "/feed.xml" (default)
 
@@ -217,7 +213,7 @@ defaults:
       pageview: true
       header:
         theme: dark
-        background: 'linear-gradient(135deg, rgb(0, 0, 0), rgb(0, 0, 0))'
+        background: black
 
 
 ## => Plugins

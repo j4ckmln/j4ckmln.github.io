@@ -27,3 +27,4 @@ _site/
 .jekyll-cache/
 
 .dev-notes.txt
+_drafts

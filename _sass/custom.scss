@@ -1,3 +1,46 @@
 /* start custom scss snippet */
+body{
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+}
 
+h1, h2, h3, h4, h5 {
+    color: #222222;
+    font-family: "Bebas Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 0.4em 0;
+}
+
+p {
+    color: #222222;
+    display: block;  
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.button--rounded {
+    border-radius: 0rem;
+}
+
+#custom-table-header{
+    background: black;
+    color:white;
+    font-weight: bold;
+    margin-top: 1em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+  
+#custom-table-body{
+    border: 0.1px solid #dbdbdb;
+    margin-top: 0.1em;
+    margin-bottom: 1.2em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
 /* end custom scss snippet */

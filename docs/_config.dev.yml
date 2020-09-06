@@ -203,6 +203,7 @@ exclude:
   - /vendor
   - /_posts
   - /index.html
+  - /posts.html
 
 collections_dir: docs
 collections:

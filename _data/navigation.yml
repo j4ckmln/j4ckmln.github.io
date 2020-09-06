@@ -1,6 +1,28 @@
 header:
   - titles:
       # @start locale config
+      en      : &EN       Home
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      es      : &ES       Inicio
+      # @end locale config
+    url: /root.html
+
+  - titles:
+      # @start locale config
+      en      : &EN       Blog
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      es      : &ES       Blog
+      # @end locale config
+    url: /index.html  
+
+  - titles:
+      # @start locale config
       en      : &EN       Wiki
       es      : &ES       Wiki
       # @end locale config
@@ -31,3 +53,18 @@ header:
       es      : &ES       Archivos
       # @end locale config
     url: /archive.html
+
+side:
+  - title: Getting Started
+    children:
+      - title: "Quick-Start Guide"
+        url: /docs/quick-start-guide/
+        children:
+        - title: "Quick-Start Guide"
+          url: /docs/quick-start-guide/
+      - title: "Structure"
+        url: /docs/structure/
+      - title: "Installation"
+        url: /docs/installation/
+      - title: "Upgrading"
+        url: /docs/upgrading/
