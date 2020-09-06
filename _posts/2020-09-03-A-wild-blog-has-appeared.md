@@ -7,9 +7,12 @@ aside:
   toc: true
 header:
   theme: dark
-  background: 'linear-gradient(135deg, rgb(0, 0, 0), rgb(0, 0, 0))'
-
+  background: black
 ---
+
+<style>
+
+</style>
 <br>
 <div class="hero hero--dark" style='height: 300px; background-image: url("../../../assets/images/headers/dark-woman-header.png");'>
   <div class="hero__content">
@@ -29,8 +32,14 @@ header:
       <p>Ha aparecido este blog! :metal: <br>
 Aquí irán apareciendo artículos de seguridad (pentesting, red team, etc etc), compartiré distintos trucos de seguridad, cheatsheets, curiosidades y cualquier locura que se me ocurra :new_moon_with_face:
       </p>
+      <p>
+      <b>Aviso a navegantes</b><br>
+      Es muy probable que la wiki sea la sección que tenga la información más actualizada :eyes:</p>
     </div>
   </div>
 </div>
+
+
+
 
 

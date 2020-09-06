@@ -1,7 +1,9 @@
 /* start custom scss snippet */
+
+/* MAIN */
 body{
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 h1, h2, h3, h4, h5 {
@@ -23,10 +25,12 @@ p {
     text-justify: inter-word;
 }
 
+/* Delete border button */
 .button--rounded {
     border-radius: 0rem;
 }
 
+/* Custom table*/
 #custom-table-header{
     background: black;
     color:white;
@@ -36,11 +40,102 @@ p {
     padding-right: 0.3em;
 }
   
-#custom-table-body{
+.t-grey-border{
     border: 0.1px solid #dbdbdb;
     margin-top: 0.1em;
     margin-bottom: 1.2em;
     padding-left: 0.3em;
     padding-right: 0.3em;
+}
+
+.t-right-border{
+    border-left: 6px solid #292626;
+    margin-top: 0.1em;
+    margin-bottom: 1.2em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+/* Animated red button */
+.frame {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+}
+button {
+margin: 20px;
+}
+.custom-btn {
+width: 130px;
+height: 40px;
+color: rgb(102, 0, 0);
+border-radius: 0px;
+padding: 10px 25px;
+font-family: 'Lato', sans-serif;
+font-weight: 500;
+background: transparent;
+cursor: pointer;
+transition: all 0.3s ease;
+position: relative;
+display: inline-block;
+outline: none;
+}
+.btn-5 {
+width: 130px;
+height: 40px;
+line-height: 42px;
+padding: 0;
+border: none;
+background: rgb(255,27,0);
+background: rgb(165, 26, 26);
+color:black;
+}
+.btn-5:hover {
+color: rgb(165, 26, 26);
+background: transparent;
+    box-shadow:none;
+}
+.btn-5:before,
+.btn-5:after{
+content:'';
+position:absolute;
+top:0;
+right:0;
+height:2px;
+width:0;
+background: rgb(165, 26, 26);
+box-shadow:
+    7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+transition:400ms ease all;
+}
+.btn-5:after{
+right:inherit;
+top:inherit;
+left:0;
+bottom:0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after{
+width:100%;
+transition:800ms ease all;
+}
+
+/*NAV COLOR*/
+ul.toc .toc-h1.active a, ul.toc .toc-h1.active a:link, ul.toc .toc-h1.active a:visited, ul.toc .toc-h2.active a, ul.toc .toc-h2.active a:link, ul.toc .toc-h2.active a:visited, ul.toc .toc-h3.active a, ul.toc .toc-h3.active a:link, ul.toc .toc-h3.active a:visited, ul.toc .toc-h4.active a, ul.toc .toc-h4.active a:link, ul.toc .toc-h4.active a:visited, ul.toc .toc-h5.active a, ul.toc .toc-h5.active a:link, ul.toc .toc-h5.active a:visited, ul.toc .toc-h6.active a, ul.toc .toc-h6.active a:link, ul.toc .toc-h6.active a:visited {
+    color: #fc4d50;
+}
+
+/*TABLA*/
+.table-full{
+width:100%;
+}
+.td-red{
+background: rgb(180, 0, 0);
+color:white;
+}
+.td-black{
+background: rgb(44, 44, 44);
+color:white;
 }
 /* end custom scss snippet */
