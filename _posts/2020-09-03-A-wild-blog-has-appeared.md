@@ -35,6 +35,7 @@ Aquí irán apareciendo artículos de seguridad (pentesting, red team, etc etc),
       <p>
       <b>Aviso a navegantes</b><br>
       Es muy probable que la wiki sea la sección que tenga la información más actualizada :eyes:</p>
+      <button class="custom-btn btn-5" onclick="window.location.href='/wiki'"><b>WIKI</b></button>
     </div>
   </div>
 </div>
