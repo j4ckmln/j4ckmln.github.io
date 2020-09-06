@@ -6,8 +6,16 @@ body{
     font-size: 1em;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h3, h4, h5 {
     color: #222222;
+    font-family: "Bebas Neue", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    line-height: 1em;
+    margin: 0.4em 0;
+}
+
+h2 {
+    color: rgb(165, 26, 26);
     font-family: "Bebas Neue", Helvetica, Arial, sans-serif;
     font-weight: normal;
     line-height: 1em;
@@ -128,10 +136,11 @@ ul.toc .toc-h1.active a, ul.toc .toc-h1.active a:link, ul.toc .toc-h1.active a:v
 
 /*TABLA*/
 .table-full{
-width:100%;
+    width:100%;
+    table-layout: fixed;
 }
 .td-red{
-background: rgb(180, 0, 0);
+background: rgb(165, 26, 26);;
 color:white;
 }
 .td-black{
