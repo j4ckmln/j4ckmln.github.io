@@ -17,23 +17,23 @@ header:
 <table class="table-full">
 <tr>
 <td class="td-black"><b></b></td>
-<td><a href="/wiki/osint">OSINT</a></td>
+<td class="table-full"><a href="/wiki/osint">OSINT</a></td>
 </tr>
 <tr>
 <td class="td-black"><b></b></td>
-<td><a href="/wiki/enumeracion">Enumeración</a></td>
+<td class="table-full"><a href="/wiki/enumeracion">Enumeración</a></td>
 </tr>
 <tr>
 <td class="td-black"><b></b></td>
-<td><a href="/wiki/enumeracion-con-metasploit">Enumeración con metasploit</a></td>
+<td class="table-full"><a href="/wiki/enumeracion-con-metasploit">Enumeración con metasploit</a></td>
 </tr>
 <tr>
 <td class="td-black"><b></b></td>
-<td><a href="/wiki/fuerza-bruta">Fuerza bruta</a></td>
+<td class="table-full"><a href="/wiki/fuerza-bruta">Fuerza bruta</a></td>
 </tr>
 <tr>
 <td class="td-black"><b></b></td>
-<td><a href="/wiki/ataques-web">Ataques a aplicaciones web</a></td>
+<td class="table-full"><a href="/wiki/ataques-web">Ataques a aplicaciones web</a></td>
 </tr>
 </table>
 
@@ -43,11 +43,11 @@ header:
 <table class="table-full">
 <tr>
 <td class="td-black"><b></b></td>
-<td><a href="/wiki/general">Definiciones generales</a></td>
+<td class="table-full"><a href="/wiki/general">Definiciones generales</a></td>
 </tr>
 <tr>
 <td class="td-black"><b></b></td>
-<td><a href="/wiki/random">Random</a></td>
+<td class="table-full"><a href="/wiki/random">Random</a></td>
 </tr>
 </table>
 
