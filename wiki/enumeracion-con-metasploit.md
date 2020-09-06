@@ -14,9 +14,6 @@ header:
 .img-custom{
     width: 30rem;
 }
-.hr-black{
-  border: 1px solid black;
-}
 </style>
 
 <h2><b>Configuración</b></h2>

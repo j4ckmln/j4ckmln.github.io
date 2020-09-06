@@ -61,7 +61,13 @@ side:
         url: /wiki/general
   - title: Pentesting
     children:
+      - title: "OSINT"
+        url: /wiki/osint
       - title: "Enumeración"
         url: /wiki/enumeracion
       - title: "Enumeración con metasploit"
         url: /wiki/enumeracion-con-metasploit
+      - title: "Fuerza bruta"
+        url: /wiki/fuerza-bruta
+      - title: "Ataques a aplicaciones web"
+        url: /wiki/ataques-web
