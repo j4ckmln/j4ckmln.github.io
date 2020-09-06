@@ -1,5 +1,14 @@
-
-<h2>Definiciones generales</h2>
+---
+layout: article
+title: Definiciones generales
+aside:
+  toc: true
+sidebar:
+  nav: side
+header:
+  theme: dark
+  background: black
+---
 
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Base64</div>
