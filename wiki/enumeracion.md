@@ -163,6 +163,27 @@ Recopilación de información básica de la web. Cookies, país, headers menos c
 
 ~~~bash
 whatweb example.com
+whatweb www.monsite.com -a 1 # Modo sigiloso
+whatweb www.monsite.com -a 3 # Modo agresivo
+~~~
+
+**Nikto**
+
+[https://github.com/sullo/nikto.git](https://github.com/sullo/nikto.git)
+
+~~~bash
+nitko -h http://domain.com
+~~~
+
+**ChopChop**
+
+[https://github.com/michelin/ChopChop.git](https://github.com/michelin/ChopChop.git)
+
+~~~bash
+./gochopchop scan --url https://domain.com
+./gochopchop scan --url https://domain.com --insecure
+./gochopchop plugins --severity High
+./gochopchop  scan --url https://domain.com --json --csv 
 ~~~
 
 <div class="grid">

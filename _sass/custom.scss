@@ -140,11 +140,19 @@ ul.toc .toc-h1.active a, ul.toc .toc-h1.active a:link, ul.toc .toc-h1.active a:v
     table-layout: fixed;
 }
 .td-red{
-background: rgb(165, 26, 26);;
-color:white;
+    background: rgb(165, 26, 26);;
+    color:white;
+}
+.td-light-red{
+    background: rgb(255, 201, 201);;
+    color:black;
 }
 .td-black{
-background: rgb(44, 44, 44);
-color:white;
+    background: rgb(44, 44, 44);
+    color:white;
+}
+.space-top-botton{
+    padding-top:1rem;
+    padding-bottom:1rem;
 }
 /* end custom scss snippet */

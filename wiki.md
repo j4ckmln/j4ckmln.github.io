@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Cheatsheets
+title: Wiki
 aside:
   toc: true
 sidebar:
@@ -10,7 +10,14 @@ header:
   background: black
 ---
 
-<h1>Menú</h1>
+<table class="table-full">
+<tr>
+<td class="td-red"><b></b></td>
+<td class="table-full td-light-red space-top-botton">La wiki sigue en construcción, por lo que todavía faltan miles de cosas básicas.<br>Ya hay bastante información interesante en la sección de OSINT y algo en las demás, iré añadiendo más información poco a poco (las horas del día son limitadas xD).</td>
+</tr>
+</table>
+
+<h2>Menú</h2>
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Pentesting</div>
 </div>
@@ -52,7 +59,7 @@ header:
 </table>
 
 
-<h1>Recursos varios</h1>
+<h2>Recursos varios</h2>
 
 [http://0xc0ffee.io/blog/OSCP-Goldmine](http://0xc0ffee.io/blog/OSCP-Goldmine)
 
