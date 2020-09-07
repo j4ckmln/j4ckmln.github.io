@@ -16,7 +16,9 @@ header:
 </div>
 
 **Información de la IP**
+
 [http://ipv4info.com/](http://ipv4info.com/) 
+
 [https://www.yougetsignal.com/](https://www.yougetsignal.com/)
 
 **IntelligenceX**
@@ -38,6 +40,7 @@ A continuación, se muestran algunos ejemplos interesantes:
 **theHarvester**
 
 [https://github.com/laramies/theHarvester.git](https://github.com/laramies/theHarvester.git)
+
 Es utilizado para recopilar información, subdominios, direcciones de correo, nombres de empleados, puertos abiertos, etc.
 
 ~~~bash
