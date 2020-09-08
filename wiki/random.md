@@ -34,3 +34,12 @@ Por ejemplo:
 </div>
 
 [https://any.run/malware-trends/](https://any.run/malware-trends/)
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Transformations</div>
+</div>
+
+[https://github.com/jobertabma/transformations.git](https://github.com/jobertabma/transformations.git)
+
+Herramienta que permite analizar un parámetro para enterder como modifica la entrada el sistema por detrás, es útil para la generación de payloads.
+

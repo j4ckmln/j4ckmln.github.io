@@ -52,6 +52,9 @@ python3 cloudfail.py --target seo.com
 python3 cloudfail.py --target seo.com --tor
 ~~~
 
+**Cabeceras**
+
+[https://securityheaders.com](https://securityheaders.com)
 
 **IntelligenceX**
 
