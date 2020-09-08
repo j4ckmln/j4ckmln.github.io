@@ -144,13 +144,16 @@ Búsqueda de nuevos dominios de una IP.
 
 ~~~bash
 https://beta.shodan.io/search/filters
-city:<nombre de ciudad>
+city:"San Diego,Austin"  
 country:"ES"
 geo:"21.454373,56.540394"
 server: "gws" hostname:"google"
 net:210.214.0.0/16
 os:"windows 10"
 port:22
+port:<=1024 # Rangos de puertos
+port:<1024,>6000
+port:22 product:OpenSSH  
 ~~~
 
 [https://github.com/jakejarvis/awesome-shodan-queries](https://github.com/jakejarvis/awesome-shodan-queries)

@@ -33,7 +33,40 @@ Esta herramienta permite obtener esta información en caso de que no se encuentr
 python server-status_PWN.py --url 'http://example.com/server-status'
 ~~~
 
+<h2><b>Explotación de vulnerabilidades en aplicaciones web</b></h2>
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">XSS</div>
+</div>
+
+//TODO
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">CSRF</div>
+</div>
+
+//TODO
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Inyección SQL</div>
+</div>
+
+//TODO
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Inyección de comandos</div>
+</div>
+
+//TODO
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SSRF</div>
+</div>
+
+//TODO
+
 <h2><b>Cheatsheets</b></h2>
+
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Open Redirect</div>
 </div>
@@ -63,4 +96,6 @@ python server-status_PWN.py --url 'http://example.com/server-status'
 
 [https://github.com/jdonsec/AllThingsSSRF](https://github.com/jdonsec/AllThingsSSRF)
 
+<h2><b>Recursos adicionales</b></h2>
 
+[https://www.hackingarticles.in/understanding-the-csrf-vulnerability-a-beginners-guide/](https://www.hackingarticles.in/understanding-the-csrf-vulnerability-a-beginners-guide/)
