@@ -13,7 +13,7 @@ header:
 <table class="table-full">
 <tr>
 <td class="td-red"><b></b></td>
-<td class="table-full td-light-red space-top-botton">La wiki sigue en construcción, por lo que todavía faltan miles de cosas básicas.<br>Ya hay bastante información interesante en la sección de OSINT y algo en las demás, iré añadiendo más información poco a poco (las horas del día son limitadas xD).<br>¿Podría esperar a terminarlo? Sí, pero la poca información que vaya añadiendo puede ir siéndole útil a alguien :metal:</td>
+<td class="table-full td-light-red space-top-botton">La wiki sigue en construcción, por lo que todavía faltan miles de cosas básicas.<br>Seguiré añadiendo más información poco a poco (las horas del día son limitadas xD).<br>¿Podría esperar a terminarlo? Sí, pero la poca información que vaya añadiendo puede ir siéndole útil a alguien :metal:</td>
 </tr>
 </table>
 
