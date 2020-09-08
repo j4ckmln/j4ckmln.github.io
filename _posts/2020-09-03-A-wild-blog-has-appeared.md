@@ -30,7 +30,7 @@ header:
     </div>
     <div class="item__description">
       <p>Ha aparecido este blog! :metal: <br>
-Aquí irán apareciendo artículos de seguridad (pentesting, red team, etc etc), compartiré distintos trucos de seguridad, cheatsheets, curiosidades y cualquier locura que se me ocurra :new_moon_with_face:
+Aquí irán apareciendo artículos de seguridad (pentesting, red team, etc etc), compartiré distintos trucos de hacking, cheatsheets, curiosidades y cualquier locura que se me ocurra :new_moon_with_face:
       </p>
       <p>
       <b>Aviso a navegantes</b><br>
