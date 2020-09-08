@@ -45,6 +45,13 @@ Búsqueda de la IP del certificado SSL entre el servidor y cloudflare.
 parsed.names: example.com and tags.raw: trusted
 ~~~
 
+[https://github.com/m0rtem/CloudFail.git](https://github.com/m0rtem/CloudFail.git)
+
+~~~
+python3 cloudfail.py --target seo.com
+python3 cloudfail.py --target seo.com --tor
+~~~
+
 
 **IntelligenceX**
 
@@ -157,6 +164,14 @@ port:22 product:OpenSSH
 ~~~
 
 [https://github.com/jakejarvis/awesome-shodan-queries](https://github.com/jakejarvis/awesome-shodan-queries)
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Búsqueda de vulnerabilidades/deficiciencias</div>
+</div>
+
+**Drupal**
+
+[https://hackertarget.com/drupal-security-scan/](https://hackertarget.com/drupal-security-scan/)
 
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Google Dorks</div>

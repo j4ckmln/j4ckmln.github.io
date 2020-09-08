@@ -238,10 +238,125 @@ cat iplist.txt | aquatone -ports xlarge -out webscreenshots
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">CMS</div>
 </div>
 
+**CMSeek**
+
+[https://github.com/Tuhinshubhra/CMSeeK.git](https://github.com/Tuhinshubhra/CMSeeK.git)
+
+Analiza todos los tipos de CMS existentes hasta el momento.
+
 ~~~bash
-wpscan --url http://192.168.1.100/ --enumerate vp,vt,u -o wpscanner
-wpscan --url https://192.168.1.100/ -e vp,vt,u --disable-tls-checks
+python3 cmseek.py -u example.com
 ~~~
+
+**CMSmap**
+
+[https://github.com/Dionach/CMSmap.git](https://github.com/Dionach/CMSmap.git)
+
+~~~
+cmsmap.py https://example.com
+cmsmap.py https://example.com -f W -F --noedb -d
+cmsmap.py https://example.com -i targets.txt -o output.txt
+~~~
+
+**WPscan**
+
+~~~bash
+wpscan --url http://192.168.1.100/ --enumerate # Enumera todo
+wpscan --url http://192.168.1.100/ --enumerate vp,vt,u -o wpscanner #Enumera vulnerabilidades en plugins (vp), vulnerabilidades en temas (vt) y nombres de usuarios
+wpscan --url https://192.168.1.100/ -e vp,vt,u --disable-tls-checks # Lo mismo que el anterior, pero en caso de que la web tenga certificado TLS
+~~~
+
+**Joomscan**
+
+[https://github.com/rezasp/joomscan.git](https://github.com/rezasp/joomscan.git)
+
+~~~bash
+perl joomscan.pl --url www.example.com
+perl joomscan.pl -u www.example.com --random-agent # Utiliza un 'User-agent' aleatorio
+~~~
+
+**droopescan**
+
+[https://github.com/droope/droopescan.git](https://github.com/droope/droopescan.git)
+
+~~~
+droopescan scan drupal -u http://example.org/ -t 32
+droopescan scan drupal -U lista__urls.txt
+~~~
+
+Si se ejecuta sin 'drupal' tratará de identificar el CMS.
+
+~~~
+droopescan scan -u example.org
+~~~
+
+**Drupwn**
+
+[https://github.com/immunIT/drupwn.git](https://github.com/immunIT/drupwn.git)
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Detección de WAF</div>
+</div>
+
+Existen varios métodos y herramientas para averiguar si una aplicación web utiliza un WAF, y en caso afirmativo, cuál.
+
+Algunas consideraciones generales:
+* Comprobar los registros DNS.
+* Búsqueda vía la propia web objetivo.
+* Reconocimiento de puertos.
+* Revisión de los certificados TLS.
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>WAF</b></td>
+<td class="td-red"><b>Puertos comunes</b></td>
+</tr>
+<tr>
+<td>Checkpoint</td>
+<td>264,18264</td>
+</tr>
+<tr>
+<td>Sonicwall</td>
+<td>4443</td>
+</tr>
+<tr>
+<td>Sophos</td>
+<td>4443</td>
+</tr>
+<tr>
+<td>Cisco-VPN</td>
+<td>500 (UDP)</td>
+</tr>
+</table>
+
+Ejemplo de búsqueda de dispositivos con el puerto 500 abierto (comúnmente de cisco): [https://www.zoomeye.org/searchResult?q=port%3A500%20isakmp%20%2Bafter:%222019-01-01%22%20%2Bbefore:%222020-01-01%22&t=all](https://www.zoomeye.org/searchResult?q=port%3A500%20isakmp%20%2Bafter:%222019-01-01%22%20%2Bbefore:%222020-01-01%22&t=all)
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>WAF</b></td>
+<td class="td-red"><b>Paths y redirecciones comunes</b></td>
+</tr>
+<tr>
+<td>Fortinet-VPN-Gateways</td>
+<td>/remote/login</td>
+</tr>
+<tr>
+<td>Cisco-VPN</td>
+<td>/+CSCOE+/logon.html</td>
+</tr>
+<tr>
+<td>Netscaler</td>
+<td>/vpn/index.html</td>
+</tr>
+<tr>
+<td>Pulse-VPN-Gateways</td>
+<td>/dana-na/</td>
+</tr>
+</table>
+
+
+
+[OSINT Basics: Detecting and Enumerating Firewalls & Gateways](https://www.secjuice.com/osint-detecting-enumerating-firewalls-gateways/)
 
 
 <h2>Recursos adicionales</h2>
@@ -250,3 +365,4 @@ wpscan --url https://192.168.1.100/ -e vp,vt,u --disable-tls-checks
 
 [https://book.hacktricks.xyz/pentesting/ipsec-ike-vpn-pentesting](https://book.hacktricks.xyz/pentesting/ipsec-ike-vpn-pentesting)
 
+[https://docs.binaryedge.io/search/#certissuerorganizationname-string](https://docs.binaryedge.io/search/#certissuerorganizationname-string)
