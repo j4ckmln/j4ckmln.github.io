@@ -27,7 +27,7 @@ Recurso online que explica por partes un comando que se le pase por la entrada d
 
 Por ejemplo:
 
-<img src="resources/output-images/explain-shell.png"/>
+<img src="/resources/output-images/explain-shell.png"/>
 
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Malware Trends Tracker</div>
