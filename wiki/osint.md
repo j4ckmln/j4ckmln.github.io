@@ -239,6 +239,10 @@ En estos cheatsheets existen distintos métodos y búsquedas de información en 
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Credenciales</div>
 </div>
 
+**EMAGNET**
+
+[https://github.com/wuseman/EMAGNET](https://github.com/wuseman/EMAGNET)
+
 **PwnedOrNot**
 
 [https://github.com/thewhiteh4t/pwnedOrNot.git](https://github.com/thewhiteh4t/pwnedOrNot.git)

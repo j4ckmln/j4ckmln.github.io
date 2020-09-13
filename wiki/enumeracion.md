@@ -198,11 +198,7 @@ curlftpfs -o allow_other <usuario>:<contraseña>@<ip> /tmp/ftp-remoto # Permitir
 <td class="table-full">Puerto común (puerto de control)</td>
 </tr>
 <tr>
-<td>22000</td>
-<td class="table-full">Otros puertos que suelen usarse</td>
-</tr>
-<tr>
-<td>2000</td>
+<td>22000,2000</td>
 <td class="table-full">Otros puertos que suelen usarse</td>
 </tr>
 </table>
@@ -233,7 +229,7 @@ Ataque por fuerza bruta a servicio SSH:
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">DNS</div>
 </div>
 
-Nmap.
+**Nmap**
 ~~~bash
 nmap -T4 -p 53 --script dns-brute 192.168.1.100
 host -l domain.local 192.168.0.2 | grep "has address" | awk '{r=$4" "$1 ; print r}'
@@ -290,6 +286,329 @@ dig -t SRV _kpasswd._tcp.domain.com # Kerberos password change
 nmap --script dns-srv-enum --script-args “dns-srv-enum.domain='domain.com'”
 ~~~
 
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">POP3</div>
+</div>
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>Puerto</b></td>
+<td class="td-red"><b>Descripción</b></td>
+</tr>
+<tr>
+<td>110</td>
+<td class="table-full">Puerto común</td>
+</tr>
+</table>
+
+**Nmap**
+
+~~~bash
+nmap -v -sV --version-intensity=5 --script pop3-capabilities -p 110 <IP> # S (CAPA, TOP, USER, SASL, RESP-CODES, LOGIN-DELAY, PIPELINING, EXPIRE, UIDL, IMPLEMENTATION)
+nmap --script pop3-brute --script-args pop3loginmethod=SASL-LOGIN -p 110 <IP> # POP3 Accounts bruteforce
+nmap --script pop3-brute --script-args pop3loginmethod=SASL-CRAM-MD5 -p 110 <IP>
+nmap --script pop3-brute --script-args pop3loginmethod=APOP -p 110 <IP>
+~~~
+
+[POP3 Extension Mechanism](https://tools.ietf.org/html/rfc2449)
+
+**Banner (Banner grabbing)**
+
+* Netcat
+~~~bash
+nc <IP> 110
+~~~
+
+* Telnet
+~~~bash
+telnet <IP> 110
+~~~
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">NTP</div>
+</div>
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>Puerto</b></td>
+<td class="td-red"><b>Descripción</b></td>
+</tr>
+<tr>
+<td>119</td>
+<td class="table-full">Puerto común</td>
+</tr>
+</table>
+
+**Banner (Banner grabbing)**
+
+* Netcat
+~~~bash
+nc -nv <IP> 119
+~~~
+
+* Telnet
+~~~bash
+telnet <IP> 119
+~~~
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">RPC</div>
+</div>
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>Puerto</b></td>
+<td class="td-red"><b>Descripción</b></td>
+</tr>
+<tr>
+<td>135</td>
+<td class="table-full">Puerto común</td>
+</tr>
+</table>
+
+**rpcclient**
+
+* Conexión como anonymous
+~~~bash
+rpcclient -U "" -N <ip> # -N para acceder sin introducir contraseña
+~~~
+
+* Obtener información sobre el DC
+~~~bash
+srvinfo
+~~~
+
+* Obtener información sobre objetos como grupos
+~~~bash
+enumdomains
+enumdomgroups
+enumalsgroups builtin
+~~~
+
+* Obtener política de contraseña del dominio
+~~~bash
+getdompwinfo
+~~~
+
+* Enumerar dominios confiables
+~~~
+dsr_enumtrustdom
+~~~
+
+* Buscar usuario, grupo, etc
+~~~
+queryuser RID
+querygroupmem 519
+queryaliasmem builtin 0x220
+lsaquery
+~~~
+
+* Convertir SID en nombres
+~~~
+lookupsids SID
+~~~
+
+**enum4linux**
+
+~~~bash
+enum4linux -v <IP> # Modo verbose
+enum4linux -a <IP> # Hace todo
+enum4linux -U <IP> # Lista los usuarios
+enum4linux -u administrator -p password -U <IP> # Acceso con usuario y contraseña
+enum4linux -r <IP> # Obtiene el nombre de usuario del rango RID (500-550, 1000-1050)
+enum4linux -R 600-660 <IP> # Obtener nombre de usuario
+enum4linux -G <IP> # Lista los grupos
+enum4linux -S <IP> # Lista los recursos compartidos
+enum4linux -s shares.txt <IP> # Ataque por diccionario para obtener los recursos compartidos
+enum4linux -o <IP> # Obtener información del SO
+enum4linux -i <IP> # Obtener información sobre las impresoras
+~~~
+
+[http://attackerkb.com/Windows/rpcclient](http://attackerkb.com/Windows/rpcclient)
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Netbios</div>
+</div>
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>Puerto</b></td>
+<td class="td-red"><b>Descripción</b></td>
+</tr>
+<tr>
+<td>139</td>
+<td class="table-full">Puerto común</td>
+</tr>
+</table>
+
+~~~bash
+nbtscan <IP> # Identifica el host y dominio
+nbstat
+nmblookup -A <IP>
+~~~
+
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SMB</div>
+</div>
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>Puerto</b></td>
+<td class="td-red"><b>Descripción</b></td>
+</tr>
+<tr>
+<td>445</td>
+<td class="table-full">Puerto común</td>
+</tr>
+</table>
+
+Sistemas operativos comunes de acuerdo a la versión de SMB que utilice.
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>Versión</b></td>
+<td class="td-red"><b>Sistemas operativos comunes</b></td>
+</tr>
+<tr>
+<td>SMB1</td>
+<td class="table-full">Windows 2000 / XP / 2003</td>
+</tr>
+<tr>
+<td>SMB2.0</td>
+<td class="table-full">Windows Vista / 2008</td>
+</tr>
+<tr>
+<td>SMB2.1</td>
+<td class="table-full">Windows 7 / 2008 R2</td>
+</tr>
+<tr>
+<td>SMB3.0</td>
+<td class="table-full">Windows 8 / 2012</td>
+</tr>
+<tr>
+<td>SMB3.02</td>
+<td class="table-full">Windows 8.1 / 2012 R2</td>
+</tr>
+<tr>
+<td>SMB3.1.1</td>
+<td class="table-full">Windows 10 / 2016</td>
+</tr>
+</table>
+
+* Lista recursos compartidos
+~~~bash
+smbclient -L //<IP>
+smbclient -L <IP>
+~~~
+
+* Conexión
+~~~bash
+smbclient \\\\x.x.x.x\\share
+smbclient -U “DOMAINNAME\Username” \\\\IP\\IPC$ password
+~~~
+
+* Acceso sin contraseña
+~~~bash
+smbclient -U “” -N \\\\IP\\IPC$
+~~~
+
+* Nullinux para usuarios y recursos compartidos
+~~~bash
+nullinux -users -quick dc.domain.com
+nullinux -all 192.168.0.0-100
+nullinux -shares -U 'Domain\User' -P 'password' 192.168.1.100
+~~~
+
+~~~bash
+smb-enum-domains
+smb-enum-groups
+smb-enum-processes
+smb-enum-sessions
+smb-os-discovery
+smb-server-stats
+smb-system-info
+~~~
+
+~~~bash
+smb-ls # Intenta obtener información sobre ficheros compartidos
+smb-mbenum # Enumera información manejada por Windows Master Browser
+smb-print-text
+smb-security-mode # Obtener información sobre el nivel de seguridad de SMB
+~~~
+
+**smbmap**
+
+~~~
+python smbmap.py -u <user> -p <password> -d workgroup -H 192.168.1.100
+python smbmap.py -u <user> -p <password> -d ACME -H 192.168.1.100 -x 'net group "Domain Admins" /domain'
+python smbmap.py -H 192.168.1.100 -u <user> -p <password> -r 'C$\Users'
+~~~
+
+[https://github.com/ShawnDEvans/smbmap.git](https://github.com/ShawnDEvans/smbmap.git)
+
+<p style="color:#872d17"><b>Danger! Puede tirar el servidor:</b></p>
+
+~~~bash
+smb-vuln-conficker # Puede tirar el host objetivo
+smb-vuln-ms06-025
+smb-vuln-ms07-029
+smb-vuln-ms08-067
+smb-vuln-ms10-054
+~~~
+
+Estos supuestamente no tiran el host objetivo:
+~~~bash
+smb-vuln-ms10-061
+smb-vuln-ms17-010
+~~~
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">IMAP</div>
+</div>
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>Puerto</b></td>
+<td class="td-red"><b>Descripción</b></td>
+</tr>
+<tr>
+<td>143</td>
+<td class="table-full">Puerto común</td>
+</tr>
+</table>
+
+* Nmap
+~~~
+nmap -v -sV --version-intensity=5 --script imap-capabilities -p 143 <IP>
+~~~
+
+**Banner**
+
+* Telnet
+~~~
+telnet <IP> 143
+~~~
+
+* Netcat
+~~~
+nc -nv <IP> 143
+~~~
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">IMAP</div>
+</div>
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>Puerto</b></td>
+<td class="td-red"><b>Descripción</b></td>
+</tr>
+<tr>
+<td>143</td>
+<td class="table-full">Puerto común</td>
+</tr>
+</table>
 
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">NFS</div>

