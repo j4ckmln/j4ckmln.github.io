@@ -148,9 +148,9 @@ msf> services -p 22 -R
 
 [https://www.offensive-security.com/metasploit-unleashed/scanner-telnet-auxiliary-modules/](https://www.offensive-security.com/metasploit-unleashed/scanner-telnet-auxiliary-modules/)
 
-**Auxiliares**
+**Telnet login**
 
-Telnet login
+* Auxiliar
 ~~~bash
 > use auxiliary/scanner/telnet/telnet_login
 > set USER_FILE /opt/metasploit-framework/embedded/framework/data/wordlists/unix_users.txt
@@ -160,10 +160,32 @@ Telnet login
 > set VERBOSE false
 ~~~
 
-**RHOSTS**
+* RHOSTS
 ~~~bash
 msf> services -p 23 -R
 ~~~
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">HTTP</div>
+</div>
+
+<div id="metasploit-heartbleed"><b>HeartBleed</b></div>
+
+* Auxiliares
+~~~
+> use auxiliary/scanner/ssl/openssl_heartbleed
+> set action SCAN
+~~~
+~~~
+> set action KEYS
+~~~
+
+* RHOSTS
+~~~
+services -p 23 -R
+~~~
+
+Ver detección de heartbleed con nmap: <a href="enumeracion#nmap-heartbleed">Heartbleed con nmap</a>
 
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SMB</div>

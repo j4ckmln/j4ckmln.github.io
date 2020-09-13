@@ -400,6 +400,23 @@ vncviewer 192.168.1.100::902
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Información genérica</div>
 </div>
 
+**Nmap**
+
+~~~bash
+nmap -Pn -n -T3 -v -sV --version-intensity=5 -Pn -p 80 --script=http-iis-webdav-vuln <IP> # ISS
+nmap -Pn -n -T3 -v -sV --version-intensity=5 -Pn -p 80 --script=http-vuln-cve2010-0738 <IP> # JBOSS (CVE-2010-0738)
+nmap -Pn -n -T3 -v -sV --version-intensity=5 -Pn -p 80 --script=http-vuln-cve2012-1823 <IP> # PHP-CGI (CVE-2012-1823)
+nmap -Pn -n -T3 -v -sV --version-intensity=5 -Pn -p 80 --script=http-vuln-cve2013-0156 <IP> # RCE Ruby on Rails (CVE-2013-0156)
+~~~
+
+<div id="nmap-heartbleed"></div>
+
+~~~bash
+nmap -Pn -n -p 443 -v -T3 --script=ssl-heartbleed,ssl-enum-ciphers,ssl-known-key --script-args vulns.showall -sV --version-intensity=5 <IP> # Heartbleed
+~~~
+
+Ver detección y explotación de heartbleed con metasploit: <a href="enumeracion-con-metasploit#metasploit-heartbleed">Heartbleed con metasploit</a>
+
 **WhatWeb**
 
 [https://github.com/urbanadventurer/WhatWeb.git](https://github.com/urbanadventurer/WhatWeb.git)
@@ -575,6 +592,12 @@ Algunas consideraciones generales:
 </table>
 
 Ejemplo de búsqueda de dispositivos con el puerto 500 abierto (comúnmente de cisco): [https://www.zoomeye.org/searchResult?q=port%3A500%20isakmp%20%2Bafter:%222019-01-01%22%20%2Bbefore:%222020-01-01%22&t=all](https://www.zoomeye.org/searchResult?q=port%3A500%20isakmp%20%2Bafter:%222019-01-01%22%20%2Bbefore:%222020-01-01%22&t=all)
+
+**Nmap**
+
+~~~bash
+nmap -Pn -n -T3 -v -sV --version-intensity=5 -Pn -p 80 --script=http-waf-detect,http-waf-fingerprint <IP> # Detección
+~~~
 
 <table class="table-full">
 <tr>
