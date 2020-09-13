@@ -9,12 +9,203 @@ header:
   theme: dark
   background: black
 ---
+<h2>Escaneo de puertos</h2>
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Nmap</div>
+</div>
+
+**General**
+
+~~~bash
+nmap -sP 192.168.0.0/24 # Escáner Ping
+nmap -T4 -F 192.168.1.100 -vvv # Escáner rápido
+nmap -sV -T4 -O -F –version-light 192.168.1.100 -vvv # Escáner rápido más agresivo y que obtiene más información
+nmap -sS -sU -PN -p T:80,T:445,U:161 192.168.1.100 # Escáner TCP Syn y UDP 
+nmap -v -Pn -n -T4 -sT -sV --version-intensity=5 --reason 192.168.1.100
+nmap -v -Pn -n -T4 -sT -p- --reason 192.168.1.100 # Escáner completo
+nmap -v -Pn -T4 -A -p- --script=default,vuln -oA full-tcp 192.168.1.100 # Full TCP + scrips + output (mi fav)
+nmap -v -T4 -sU -A -p- --script=default,vuln -oA full-udp 192.168.1.100 # Full UDP + scrips + output (mi fav)
+~~~
+
+**Descubrimiento de puertos**
+
+~~~bash
+nmap -sL 192.168.1.100 # Lista los hosts y obtiene el hostname
+nmap -sn 192.168.1.100 # Sólo descubre puertos, no escanea
+nmap -Pn 192.168.1.100 # Deshabilita el descubrimiento, sólo escanea, es útil cuando el firewall no permite las peticiones ICMP (ping)
+nmap 192.168.1.100 -n # Deshabilita la resolución DNS
+~~~
+
+**Ejemplos de objetivos específicos**
+
+~~~bash
+nmap 192.168.1.100
+nmap 192.168.1.100-150
+nmap 192.168.1.0/24
+nmap domain.com
+nmap 192.168.1.0/24 --exclude 192.168.1.100
+nmap -iL ips.txt # Lista de ip objetivo
+~~~
+
+**Técnicas**
+
+~~~bash
+nmap -sS 192.168.1.100 # Por defecto sin root, no completa la comunicación TCP, es más rápido que '-sT'
+nmap -sT 192.168.1.100 # Por defecto con root, completa la comunicación TCP, por lo que es más lento
+~~~
+
+~~~bash
+nmap -sU 192.168.1.100 # Escáner UDP
+~~~
+
+**Tiempos de las peticiones**
+
+~~~bash
+nmap 192.168.1.100 -F # Escáner rápido
+nmap 192.168.1.100 -O --osscan-limit # Deshabilita la detección del sistema operativo si se encuentra al menos un puerto abierto
+nmap 192.168.1.100 --host-timeout 10s
+nmap 192.168.1.100 --scan-delay 2s
+nmap 192.168.1.100 --max-scan-delay 5s
+nmap 192.168.1.100 --max-retries 3
+nmap 192.168.1.100 --min-rate 100 # Mínimo de paquetes por segundo
+nmap 192.168.1.100 --max-rate 110 # Máximo de paquetes por segundo
+~~~
+
+**Velocidad del escáner**
+<table class="table-full">
+<tr>
+<td class="td-red"><b>Modo</b></td>
+<td class="td-red"><b>Descripción</b></td>
+</tr>
+<tr>
+<td>T0-T1</td>
+<td class="table-full">Lento, pero útil ante IDS (Intrusion Detection Systems)</td>
+</tr>
+<tr>
+<td>T2-T3</td>
+<td class="table-full">Normal</td>
+</tr>
+<tr>
+<td>T4-5</td>
+<td class="table-full">Agresivo, adecuado para redes que soporten bastante tráfico, o CTFs</td>
+</tr>
+</table>
+
+**Evasión de IDS**
+
+~~~bash
+nmap 192.168.1.100 -f # Fragmentar los paquetes
+nmap 192.168.1.100 -mtu 30 # Determinar el tamaño del offset
+nmap 192.168.1.100 -D 192.168.1.101 # Escaner desde IP falsa
+nmap -S domainone.com domaintwo.com # Realizar un escaner a un dominio (domaintwo.com) desde otro (domainone.com)
+nmap 192.168.1.100 -g 53 # Usar un puerto origen específico
+nmap 192.168.1.100 --proxies http://X.X.X.X:8080 # Utilizar un proxy
+nmap 192.168.1.100 --data-length 150 # Enviar paquetes con datos aleatorios
+~~~
+
+**Salida**
+
+~~~bash
+nmap 192.168.1.100 -oX scan.xml # Salida xml
+nmap 192.168.1.100 -oA scan # Todas las salidas (normal (oN), xml (oX), grepable (oG))
+~~~
+
+Convertir XML a HTML
+
+~~~bash
+xsltproc scan.xml -o scan.html
+~~~
 
 <h2>Reconocimiento de servicios</h2>
 
 <div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">FTP</div>
+</div>
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>Puerto</b></td>
+<td class="td-red"><b>Descripción</b></td>
+</tr>
+<tr>
+<td>21</td>
+<td class="table-full">Puerto común (puerto de control)</td>
+</tr>
+<tr>
+<td>20</td>
+<td class="table-full">Puerto para transferencia de datos</td>
+</tr>
+</table>
+
+~~~bash
+sudo nmap -v -p21 --script=default,vuln -oA ftp-scan 192.168.0.0/24
+~~~
+
+Intento de conexión como anonymous y banner (Banner grabbing):
+
+~~~bash
+ftp <ip>
+> USER anonymous
+> PASS loquesea
+~~~
+
+Lo mismo que antes, pero en modo pasivo:
+
+~~~bash
+ftp -p <ip>
+> USER anonymous
+> PASS loquesea
+~~~
+
+Conexión vía telnet:
+
+~~~bash
+telnet <ip> 21
+anonymous
+loquesea
+~~~
+
+Conexión vía web o carpetas:
+
+~~~bash
+ftp://ip
+~~~
+
+Ataque por fuerza bruta a servicio FTP:
+
+<a href="fuerza-bruta#ftp-brute">Fuerza bruta FTP</a>
+
+Montar FTP localmente:
+
+~~~bash
+mkdir /tmp/ftp-remoto
+curlftpfs <usuario>:<contraseña>@<ip> /tmp/ftp-remoto
+curlftpfs -o allow_other <usuario>:<contraseña>@<ip> /tmp/ftp-remoto # Permitir otros usuarios
+~~~
+
+<div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SSH</div>
 </div>
+
+<table class="table-full">
+<tr>
+<td class="td-red"><b>Puerto</b></td>
+<td class="td-red"><b>Descripción</b></td>
+</tr>
+<tr>
+<td>22</td>
+<td class="table-full">Puerto común (puerto de control)</td>
+</tr>
+<tr>
+<td>22000</td>
+<td class="table-full">Otros puertos que suelen usarse</td>
+</tr>
+<tr>
+<td>2000</td>
+<td class="table-full">Otros puertos que suelen usarse</td>
+</tr>
+</table>
 
 ~~~bash
 nmap -p 22 -n -v -sV -Pn --script ssh-auth-methods --script-args ssh.user=root 192.168.1.100
@@ -22,13 +213,21 @@ nmap -p 22 -n -v -sV -Pn --script ssh-hostkey 192.168.1.100
 nmap -p 22 -n -v -sV -Pn --script ssh-brute --script-args userdb=/usr/share/wordlists/Seclists/Usernames/top-usernames-shortlist.txt,passdb=/usr/share/wordlists/Seclists/Passwords/darkweb2017-top10000.txt 192.168.1.100
 ~~~
 
-<div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">FTP</div>
-</div>
+Banner (banner grabbing):
 
-~~~bash
-sudo nmap -v -p21 --script=default,vuln -oX ftp-scan.xml 192.168.0.0/24
 ~~~
+telnet <ip> 22
+~~~
+
+Conexión vía OpenSSL:
+
+~~~
+openssl s_client -connect <ip>:<port>
+~~~
+
+Ataque por fuerza bruta a servicio SSH:
+
+<a href="fuerza-bruta#ssh-brute">Fuerza bruta SSH</a>
 
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">DNS</div>
@@ -50,14 +249,47 @@ dig example.com ns
 **Transferencia de zona**
 
 Si el servidor tiene habilitada la transferencia de zona, nos permitirá obtener los subdominios del propio servidor, sin necesidad de intentar obtenerlos por fuerza bruta.
-Dig.
+
+* Dig
 ~~~bash
-dig @<name-server-of-target> <target-host-or-address> axfr
+dig @<NS> <target-host-or-address> axfr
 dig @ns1.example.com example.com axfr
+dig @ns1.example.com -p <puerto> example.com axfr
 ~~~
+
+* Host
 ~~~bash
 host -t axfr domain.local ns1.domain.local
 ~~~
+
+* Nslookup
+~~~bash
+nslookup -type=any
+> set port <port>
+> server <ns>
+> <host>
+~~~
+
+* Nmap
+~~~bash
+nmap --script=dns-transfer-zone -p 53 domain
+~~~
+
+**Active Directory DNS**
+
+* Dig
+~~~bash
+dig -t SRV _gc._tcp.domain.com # Global catalog
+dig -t SRV _ldap._tcp.domain.com # LDAP Server
+dig -t SRV _kerberos._tcp.domain.com # Kerberos KDC
+dig -t SRV _kpasswd._tcp.domain.com # Kerberos password change
+~~~
+
+* Nmap
+~~~bash
+nmap --script dns-srv-enum --script-args “dns-srv-enum.domain='domain.com'”
+~~~
+
 
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">NFS</div>
@@ -80,14 +312,24 @@ mkdir /mnt/nfs ; mount -t nfs -o nolock 192.168.1.100:/home/victim /mnt/nfs
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SMTP</div>
 </div>
 
+**Nmap**
+
 ~~~bash
 nmap --script smtp-enum-users.nse -p 25 192.168.1.100
+~~~
+
+**smtp-user-enum**
+~~~
 smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_users.txt -t 192.168.1.100
+~~~
+
+**ismtp**
+[https://github.com/crunchsec/ismtp](https://github.com/crunchsec/ismtp)
+
+~~~bash
 ./ismtp.py -h 10.11.1.229:25 -l 1 -e /usr/share/metasploit-framework/data/wordlists/unix_users.txt
 ./ismtp.py -h 10.11.1.23 -i sender@example.com -x
 ~~~
-
-[https://github.com/crunchsec/ismtp](https://github.com/crunchsec/ismtp)
 
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">LDAP</div>
@@ -98,7 +340,10 @@ nmap --script=ldap-search -p 636,389 -v -oX ldap.xml -sV 192.168.0.0/24
 ~~~
 ~~~bash
 ldapsearch -LLL -x -H ldap://<domain fqdn> -b '' -s base '(objectclass=*)'
+ldapsearch -h "<hostname>" -p "<puerto>" -x -b "ou=<OU>,DC=<DC>,DC=<DC>,DC=<DC>" -v
+
 ~~~
+
 
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">RDP</div>
@@ -313,19 +558,19 @@ Algunas consideraciones generales:
 </tr>
 <tr>
 <td>Checkpoint</td>
-<td>264,18264</td>
+<td class="table-full">264,18264</td>
 </tr>
 <tr>
 <td>Sonicwall</td>
-<td>4443</td>
+<td class="table-full">4443</td>
 </tr>
 <tr>
 <td>Sophos</td>
-<td>4443</td>
+<td class="table-full">4443</td>
 </tr>
 <tr>
 <td>Cisco-VPN</td>
-<td>500 (UDP)</td>
+<td class="table-full">500 (UDP)</td>
 </tr>
 </table>
 

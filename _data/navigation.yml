@@ -73,3 +73,5 @@ side:
         url: /wiki/fuerza-bruta
       - title: "Ataques a aplicaciones web"
         url: /wiki/ataques-web
+      - title: "Red Interna"
+        url: /wiki/network
