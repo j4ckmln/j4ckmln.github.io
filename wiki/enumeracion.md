@@ -408,22 +408,6 @@ lsaquery
 lookupsids SID
 ~~~
 
-**enum4linux**
-
-~~~bash
-enum4linux -v <IP> # Modo verbose
-enum4linux -a <IP> # Hace todo
-enum4linux -U <IP> # Lista los usuarios
-enum4linux -u administrator -p password -U <IP> # Acceso con usuario y contraseña
-enum4linux -r <IP> # Obtiene el nombre de usuario del rango RID (500-550, 1000-1050)
-enum4linux -R 600-660 <IP> # Obtener nombre de usuario
-enum4linux -G <IP> # Lista los grupos
-enum4linux -S <IP> # Lista los recursos compartidos
-enum4linux -s shares.txt <IP> # Ataque por diccionario para obtener los recursos compartidos
-enum4linux -o <IP> # Obtener información del SO
-enum4linux -i <IP> # Obtener información sobre las impresoras
-~~~
-
 [http://attackerkb.com/Windows/rpcclient](http://attackerkb.com/Windows/rpcclient)
 
 <div class="grid">
@@ -535,6 +519,22 @@ smb-ls # Intenta obtener información sobre ficheros compartidos
 smb-mbenum # Enumera información manejada por Windows Master Browser
 smb-print-text
 smb-security-mode # Obtener información sobre el nivel de seguridad de SMB
+~~~
+
+**enum4linux**
+
+~~~bash
+enum4linux -v <IP> # Modo verbose
+enum4linux -a <IP> # Hace todo
+enum4linux -U <IP> # Lista los usuarios
+enum4linux -u administrator -p password -U <IP> # Acceso con usuario y contraseña
+enum4linux -r <IP> # Obtiene el nombre de usuario del rango RID (500-550, 1000-1050)
+enum4linux -R 600-660 <IP> # Obtener nombre de usuario
+enum4linux -G <IP> # Lista los grupos
+enum4linux -S <IP> # Lista los recursos compartidos
+enum4linux -s shares.txt <IP> # Ataque por diccionario para obtener los recursos compartidos
+enum4linux -o <IP> # Obtener información del SO
+enum4linux -i <IP> # Obtener información sobre las impresoras
 ~~~
 
 **smbmap**
@@ -699,6 +699,10 @@ nbtscan 192.168.1.0/24
 ~~~bash
 sudo ike-scan -M 192.168.1.100
 ~~~
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">VNC</div>
+</div>
 
 ~~~bash
 vncviewer 192.168.1.100::902
