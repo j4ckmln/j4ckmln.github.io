@@ -133,7 +133,7 @@ echo 1 > /proc/sys/net/ipv4/ip_forward # Router mode
 
 ~~~
 > net.show
-> set arp.spoof.targets 192.168.5.99
+> set arp.spoof.targets 192.168.1.100
 > arp.spoof on
 ~~~
 

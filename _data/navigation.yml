@@ -67,11 +67,13 @@ side:
         url: /wiki/osint
       - title: "Enumeración"
         url: /wiki/enumeracion
-      - title: "Enumeración con metasploit"
+      - title: "Enumeración [Metasploit]"
         url: /wiki/enumeracion-con-metasploit
       - title: "Fuerza bruta"
         url: /wiki/fuerza-bruta
       - title: "Ataques a aplicaciones web"
         url: /wiki/ataques-web
-      - title: "Red Interna"
+      - title: "Ataques en redes internas"
         url: /wiki/network
+      - title: "Elevación de privilegios"
+        url: /wiki/priv-elevation

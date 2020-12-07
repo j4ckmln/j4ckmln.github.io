@@ -232,7 +232,7 @@ Ataque por fuerza bruta a servicio SSH:
 **Nmap**
 ~~~bash
 nmap -T4 -p 53 --script dns-brute 192.168.1.100
-host -l domain.local 192.168.0.2 | grep "has address" | awk '{r=$4" "$1 ; print r}'
+host -l domain.local 192.168.1.100 | grep "has address" | awk '{r=$4" "$1 ; print r}'
 ~~~
 
 **Enumeración de servidores DNS**
@@ -500,7 +500,7 @@ smbclient -U “” -N \\\\IP\\IPC$
 * Nullinux para usuarios y recursos compartidos
 ~~~bash
 nullinux -users -quick dc.domain.com
-nullinux -all 192.168.0.0-100
+nullinux -all 192.168.1.0-100
 nullinux -shares -U 'Domain\User' -P 'password' 192.168.1.100
 ~~~
 
@@ -615,7 +615,7 @@ nc -nv <IP> 143
 </div>
 
 ~~~bash
-sudo nmap -sV -v -p111 --script=default,vuln -oX nfs.xml 192.168.0.0/24
+sudo nmap -sV -v -p111 --script=default,vuln -oX nfs.xml 192.168.1.0/24
 nmap -v -sV -p 111 --script=nfs-showmount 192.168.1.100
 ~~~
 
@@ -655,7 +655,7 @@ smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_us
 </div>
 
 ~~~bash
-nmap --script=ldap-search -p 636,389 -v -oX ldap.xml -sV 192.168.0.0/24
+nmap --script=ldap-search -p 636,389 -v -oX ldap.xml -sV 192.168.1.0/24
 ~~~
 ~~~bash
 ldapsearch -LLL -x -H ldap://<domain fqdn> -b '' -s base '(objectclass=*)'
@@ -944,7 +944,6 @@ nmap -Pn -n -T3 -v -sV --version-intensity=5 -Pn -p 80 --script=http-waf-detect,
 <td>/dana-na/</td>
 </tr>
 </table>
-
 
 
 [OSINT Basics: Detecting and Enumerating Firewalls & Gateways](https://www.secjuice.com/osint-detecting-enumerating-firewalls-gateways/)
