@@ -12,7 +12,7 @@ header:
 
 Durante la etapa de explotación se consigue acceso al sistema objetivo, en ocasiones con un usuario sin privilegios (no admin) y otras, con suerte, como el administrador del sistema.
 * En linux, por defecto, como el usuario `root`.
-* En windows, por defecto, como el usuario `nt authorized/system`.
+* En windows, por defecto, como el usuario `NT AUTHORITY\SYSTEM`.
 
 Si nos encontramos con un usuario que no cuenta con altos privilegios, tendremos limitaciones para movernos por el sistema y al acceso de información, así como para realizar acciones que requieran privilegios de administrador. Pero, ante esto, podemos buscar fallos en el sistema, para poder ejecutar acciones con privilegios y obtener acceso como el usuario administrador, según el sistema operativo ante el que nos encontremos.
 
@@ -60,7 +60,7 @@ La salida de este fichero es algo parecido a lo siguiente (obviamente los binari
 /bin/mount
 ~~~
 
-Bucle `for` en bash para obtener información de todos los binarios:
+Bucle `for` en bash para obtener información de todos los binarios.
 ¿De dónde sale el contenido del fichero `suid-bins.txt`?
 De la clásica búsqueda de ficheros con el flag SUID activado.
 
