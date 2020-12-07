@@ -17,53 +17,19 @@ header:
 </tr>
 </table>
 
-<h2>Menú</h2>
-<div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Pentesting</div>
-</div>
-<table class="table-full">
-<tr>
-<td class="td-black"><b></b></td>
-<td class="table-full"><a href="/wiki/osint">OSINT</a></td>
-</tr>
-<tr>
-<td class="td-black"><b></b></td>
-<td class="table-full"><a href="/wiki/enumeracion">Enumeración</a></td>
-</tr>
-<tr>
-<td class="td-black"><b></b></td>
-<td class="table-full"><a href="/wiki/enumeracion-con-metasploit">Enumeración con metasploit</a></td>
-</tr>
-<tr>
-<td class="td-black"><b></b></td>
-<td class="table-full"><a href="/wiki/fuerza-bruta">Fuerza bruta</a></td>
-</tr>
-<tr>
-<td class="td-black"><b></b></td>
-<td class="table-full"><a href="/wiki/ataques-web">Ataques a aplicaciones web</a></td>
-</tr>
-</table>
+<h2>Consideraciones generales</h2>
 
-<div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">General</div>
-</div>
-<table class="table-full">
-<tr>
-<td class="td-black"><b></b></td>
-<td class="table-full"><a href="/wiki/general">Definiciones generales</a></td>
-</tr>
-<tr>
-<td class="td-black"><b></b></td>
-<td class="table-full"><a href="/wiki/random">Random</a></td>
-</tr>
-</table>
+**Información general de la wiki**
 
+¿Por qué esta información? Para **identificar qué comando será ejecutado en cada máquina**, se utiliza esta información de referencia: 
 
-<h2>Recursos varios</h2>
+* **Máquina atacante:** 192.168.1.150
+* **Máquina víctima:** 192.168.1.100
+* **Directorio del proyecto** ~/j4ckmln
 
-[http://0xc0ffee.io/blog/OSCP-Goldmine](http://0xc0ffee.io/blog/OSCP-Goldmine)
+Es **importante contar con una carpeta para cada proyecto**, lo que nos permitirá guardar de forma ordenada la información.
 
-[https://github.com/yeyintminthuhtut/Awesome-Red-Teaming](https://github.com/yeyintminthuhtut/Awesome-Red-Teaming)
+Tener una estructura de ataque ordenada, aumenta el potencial de uso de esta, puesto que podremos **automatizar y mezclar fácilmente la información obtenida** de cada sistema objetivo que se tenga.
 
-[https://vulp3cula.gitbook.io/hackers-grimoire/recon/active-information-gathering](https://vulp3cula.gitbook.io/hackers-grimoire/recon/active-information-gathering)
+Los comandos de la wiki tendrán un **enfoque de automatización vía línea de comandos**, para hacer pruebas de forma masiva y no estar repitiendo las mismas acciones manuales contra cada sistema que nos encontremos.
 
