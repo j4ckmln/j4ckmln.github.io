@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Pentesting - Enumeración
+title: Pentesting - Enumeración de servicios
 aside:
   toc: true
 sidebar:
@@ -120,26 +120,14 @@ xsltproc scan.xml -o scan.html
 <h2>Reconocimiento de servicios</h2>
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">FTP</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">FTP - 21,20</div>
 </div>
 
-<table class="table-full">
-<tr>
-<td class="td-red"><b>Puerto</b></td>
-<td class="td-red"><b>Descripción</b></td>
-</tr>
-<tr>
-<td>21</td>
-<td class="table-full">Puerto común (puerto de control)</td>
-</tr>
-<tr>
-<td>20</td>
-<td class="table-full">Puerto para transferencia de datos</td>
-</tr>
-</table>
+* **21**. Puerto común de acceso (puerto de control)
+* **20**. Puerto para transferencia de datos.
 
 ~~~bash
-sudo nmap -v -p21 --script=default,vuln -oA ftp-scan 192.168.0.0/24
+sudo nmap -v -p21 --script=default,vuln -oA ftp-scan 192.168.1.0/24
 ~~~
 
 Intento de conexión como anonymous y banner (Banner grabbing):
@@ -185,23 +173,8 @@ curlftpfs -o allow_other <usuario>:<contraseña>@<ip> /tmp/ftp-remoto # Permitir
 ~~~
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SSH</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SSH - 22</div>
 </div>
-
-<table class="table-full">
-<tr>
-<td class="td-red"><b>Puerto</b></td>
-<td class="td-red"><b>Descripción</b></td>
-</tr>
-<tr>
-<td>22</td>
-<td class="table-full">Puerto común (puerto de control)</td>
-</tr>
-<tr>
-<td>22000,2000</td>
-<td class="table-full">Otros puertos que suelen usarse</td>
-</tr>
-</table>
 
 ~~~bash
 nmap -p 22 -n -v -sV -Pn --script ssh-auth-methods --script-args ssh.user=root 192.168.1.100
@@ -226,7 +199,7 @@ Ataque por fuerza bruta a servicio SSH:
 <a href="fuerza-bruta#ssh-brute">Fuerza bruta SSH</a>
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">DNS</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">DNS - 53</div>
 </div>
 
 **Nmap**
@@ -287,19 +260,8 @@ nmap --script dns-srv-enum --script-args “dns-srv-enum.domain='domain.com'”
 ~~~
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">POP3</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">POP3 - 110</div>
 </div>
-
-<table class="table-full">
-<tr>
-<td class="td-red"><b>Puerto</b></td>
-<td class="td-red"><b>Descripción</b></td>
-</tr>
-<tr>
-<td>110</td>
-<td class="table-full">Puerto común</td>
-</tr>
-</table>
 
 **Nmap**
 
@@ -325,19 +287,8 @@ telnet <IP> 110
 ~~~
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">NTP</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">NTP - 119</div>
 </div>
-
-<table class="table-full">
-<tr>
-<td class="td-red"><b>Puerto</b></td>
-<td class="td-red"><b>Descripción</b></td>
-</tr>
-<tr>
-<td>119</td>
-<td class="table-full">Puerto común</td>
-</tr>
-</table>
 
 **Banner (Banner grabbing)**
 
@@ -352,19 +303,8 @@ telnet <IP> 119
 ~~~
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">RPC</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">RPC - 135</div>
 </div>
-
-<table class="table-full">
-<tr>
-<td class="td-red"><b>Puerto</b></td>
-<td class="td-red"><b>Descripción</b></td>
-</tr>
-<tr>
-<td>135</td>
-<td class="table-full">Puerto común</td>
-</tr>
-</table>
 
 **rpcclient**
 
@@ -373,57 +313,11 @@ telnet <IP> 119
 rpcclient -U "" -N <ip> # -N para acceder sin introducir contraseña
 ~~~
 
-* Obtener información sobre el DC
-~~~bash
-srvinfo
-~~~
-
-* Obtener información sobre objetos como grupos
-~~~bash
-enumdomains
-enumdomgroups
-enumalsgroups builtin
-~~~
-
-* Obtener política de contraseña del dominio
-~~~bash
-getdompwinfo
-~~~
-
-* Enumerar dominios confiables
-~~~
-dsr_enumtrustdom
-~~~
-
-* Buscar usuario, grupo, etc
-~~~
-queryuser RID
-querygroupmem 519
-queryaliasmem builtin 0x220
-lsaquery
-~~~
-
-* Convertir SID en nombres
-~~~
-lookupsids SID
-~~~
-
 [http://attackerkb.com/Windows/rpcclient](http://attackerkb.com/Windows/rpcclient)
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Netbios</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Netbios - 137,138,139</div>
 </div>
-
-<table class="table-full">
-<tr>
-<td class="td-red"><b>Puerto</b></td>
-<td class="td-red"><b>Descripción</b></td>
-</tr>
-<tr>
-<td>139</td>
-<td class="table-full">Puerto común</td>
-</tr>
-</table>
 
 ~~~bash
 nbtscan <IP> # Identifica el host y dominio
@@ -431,9 +325,11 @@ nbstat
 nmblookup -A <IP>
 ~~~
 
+[https://book.hacktricks.xyz/pentesting/137-138-139-pentesting-netbios](https://book.hacktricks.xyz/pentesting/137-138-139-pentesting-netbios)
+
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SMB</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SMB - 445</div>
 </div>
 
 <table class="table-full">
@@ -564,19 +460,8 @@ smb-vuln-ms17-010
 ~~~
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">IMAP</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">IMAP - 143</div>
 </div>
-
-<table class="table-full">
-<tr>
-<td class="td-red"><b>Puerto</b></td>
-<td class="td-red"><b>Descripción</b></td>
-</tr>
-<tr>
-<td>143</td>
-<td class="table-full">Puerto común</td>
-</tr>
-</table>
 
 * Nmap
 ~~~
@@ -599,19 +484,8 @@ nc -nv <IP> 143
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">IMAP</div>
 </div>
 
-<table class="table-full">
-<tr>
-<td class="td-red"><b>Puerto</b></td>
-<td class="td-red"><b>Descripción</b></td>
-</tr>
-<tr>
-<td>143</td>
-<td class="table-full">Puerto común</td>
-</tr>
-</table>
-
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">NFS</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">NFS - 111</div>
 </div>
 
 ~~~bash
@@ -651,7 +525,7 @@ smtp-user-enum -M VRFY -U /usr/share/metasploit-framework/data/wordlists/unix_us
 ~~~
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">LDAP</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">LDAP - 636,389</div>
 </div>
 
 ~~~bash
@@ -660,24 +534,15 @@ nmap --script=ldap-search -p 636,389 -v -oX ldap.xml -sV 192.168.1.0/24
 ~~~bash
 ldapsearch -LLL -x -H ldap://<domain fqdn> -b '' -s base '(objectclass=*)'
 ldapsearch -h "<hostname>" -p "<puerto>" -x -b "ou=<OU>,DC=<DC>,DC=<DC>,DC=<DC>" -v
-
 ~~~
 
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">RDP</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">RDP - 3389</div>
 </div>
 
 ~~~bash
 rdesktop -g 85% -r disk:share=/var/www -r clipboard:CLIPBOARD -u username -p password 192.168.1.10
-~~~
-
-<div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Netbios</div>
-</div>
-
-~~~bash
-nbtscan 192.168.1.0/24
 ~~~
 
 <div class="grid">

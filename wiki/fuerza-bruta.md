@@ -111,6 +111,17 @@ unshadow /etc/passwd /etc/shadow > unshadow.txt
 john --wordlist=/usr/share/wordlists/rockyou.txt --fork=20 unshadow.txt
 ~~~
 
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Hashcat</div>
+</div>
+
+~~~bash
+hashcat -m <tipo> <hashes> <diccionario>
+hashcat -m 1000 hashes.txt /usr/share/wordlists/rockyou.txt # Diccionario
+hashcat -m 1000 hashes.txt -a3 "?u?l?l?l?d?d?d?D" # Máscara
+hashcar -O -w3 -m 2500 wpa.hccapx /usr/share/wordlists/rockyou.txt # "-O -w3" Aumentan la velocidad, pero consumen casi la totalidad de los recursos del sistema
+~~~
+
 <h1>Generación de diccionarios</h1>
 
 <div class="grid">

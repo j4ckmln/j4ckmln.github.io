@@ -65,9 +65,9 @@ side:
     children:
       - title: "OSINT"
         url: /wiki/osint
-      - title: "Enumeración"
+      - title: "Enumeración de servicios"
         url: /wiki/enumeracion
-      - title: "Enumeración [Metasploit]"
+      - title: "Enumeración de servicios [Metasploit]"
         url: /wiki/enumeracion-con-metasploit
       - title: "Fuerza bruta"
         url: /wiki/fuerza-bruta
