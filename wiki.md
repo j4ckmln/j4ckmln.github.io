@@ -82,3 +82,5 @@ También he preparado un OVA con algunas modificaciones básicas que me gustan h
 **Kali 2020.4 (versión OSCP):** [https://drive.google.com/file/d/1n_CFhtQUdGu4O5DaLTp8n8jA0VizIKB0](https://drive.google.com/file/d/1n_CFhtQUdGu4O5DaLTp8n8jA0VizIKB0)
 
 Dice una leyenda, que si buscas en San Google `appnee vmware key` se cosiguen cosas ;)
+
+<img src="/resources/output-images/escritorio-kali.png"/>
