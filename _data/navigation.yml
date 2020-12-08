@@ -77,3 +77,5 @@ side:
         url: /wiki/network
       - title: "Elevación de privilegios"
         url: /wiki/priv-elevation
+      - title: "Post-Explotación"
+        url: /wiki/post-explotacion

