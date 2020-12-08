@@ -59,3 +59,24 @@ mkdir -p {nmap,exploits,discover,data,brute,creds,shells} ; touch ip.txt notes.t
 ~~~
 
 <img src="/resources/output-images/work-folder.png"/>
+
+<h2>Máquina de ataque</h2>
+
+Para el ataque podríamos utilizar cualquier sistema operativo, por preferencia optaré por sistemas linux. Si estás comenzando, te sugiero comenzar con Kali Linux (o Parrot), puesto que ya cuentan con las herramientas de hacking más utilizadas y comunes (evitas estar instalando cada herramienta que vayas utilizando).
+
+* Kali: [https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/)
+* Parrot: [https://www.parrotsec.org/download/](https://www.parrotsec.org/download/)
+
+<div class="grid" id="j4ckmln-machines">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Mi versión de Kali</div>
+</div>
+
+También he preparado un OVA con algunas modificaciones básicas que me gustan hacer:
+* ZSH + PowerLevel10k ~ Para tener una terminal más funcional.
+* Configuración de la división horizontal (Ctrl+Shift+O) y vertical (Ctrl+Shift+E) en la terminal.
+* Foxy Proxy + Burp Configurado ~ Te ahorras 3 min de tener que configurarlo.
+* Teclado por defecto en español ~ Adiós a "setxkbmap es".
+
+**Kali 2020.4:** [https://drive.google.com/file/d/16ZKjCF2YKGxsYfuPCWj9v1SimKvKrx7p](https://drive.google.com/file/d/16ZKjCF2YKGxsYfuPCWj9v1SimKvKrx7p)
+
+**Kali 2020.4 (versión OSCP):** [https://drive.google.com/file/d/1n_CFhtQUdGu4O5DaLTp8n8jA0VizIKB0](https://drive.google.com/file/d/1n_CFhtQUdGu4O5DaLTp8n8jA0VizIKB0)

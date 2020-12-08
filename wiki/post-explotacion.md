@@ -49,3 +49,7 @@ Ejecutar comandos ftp para descargar el binario:
 ~~~bash
 ftp -n -v -s:ftp.txt"
 ~~~
+
+<h2>Recursos adicionales</h2>
+
+[https://book.hacktricks.xyz/exfiltration](https://book.hacktricks.xyz/exfiltration)
