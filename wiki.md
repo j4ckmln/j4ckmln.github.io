@@ -53,12 +53,12 @@ One-liner de creación de carpetas
 for red in $(ls); do for ip in $(ls $red); do cd ~/j4ckmln/$red/$ip; mkdir -p {nmap,exploits,discover,data,brute,creds,shells} ; touch ip.txt notes.txt url.txt cookies.txt ; pwd | awk -F'/' '{print $NF}' >> ip.txt ; pwd | awk -F'/' '{print "http://"$NF}' > urls.txt ; pwd | awk -F'/' '{print "https://"$NF}' >> urls.txt ; cd ~/j4ckmln ; done; done
 ~~~
 
-Sólo la estructura de carpetas y ficheros:
+<img src="/resources/output-images/work-folder.png"/>
+
+Si sólo quieres crear la estructura de carpetas y ficheros:
 ~~~bash
 mkdir -p {nmap,exploits,discover,data,brute,creds,shells} ; touch ip.txt notes.txt url.txt cookies.txt
 ~~~
-
-<img src="/resources/output-images/work-folder.png"/>
 
 <h2>Máquina de ataque</h2>
 
@@ -80,3 +80,5 @@ También he preparado un OVA con algunas modificaciones básicas que me gustan h
 **Kali 2020.4:** [https://drive.google.com/file/d/16ZKjCF2YKGxsYfuPCWj9v1SimKvKrx7p](https://drive.google.com/file/d/16ZKjCF2YKGxsYfuPCWj9v1SimKvKrx7p)
 
 **Kali 2020.4 (versión OSCP):** [https://drive.google.com/file/d/1n_CFhtQUdGu4O5DaLTp8n8jA0VizIKB0](https://drive.google.com/file/d/1n_CFhtQUdGu4O5DaLTp8n8jA0VizIKB0)
+
+Dice una leyenda, que si buscas en San Google `appnee vmware key` se cosiguen cosas ;)

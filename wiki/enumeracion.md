@@ -648,6 +648,11 @@ nitko -h http://domain.com
 gobuster dir -u http://192.168.1.100 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -o discov-80.txt
 ~~~
 
+Siendo `url.txt` igual a `http://192.168.1.100`:
+~~~bash
+gobuster dir -u $(cat ../url.txt) -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt -o directory-list-2.3-medium_gobuster.txt
+~~~
+
 Si la web tiene certificado (https), se deberá utilizar, además, la opción '-k'
 
 ~~~bash
