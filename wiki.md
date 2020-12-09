@@ -60,7 +60,7 @@ Si sólo quieres crear la estructura de carpetas y ficheros:
 mkdir -p {nmap,exploits,discover,data,brute,creds,shells} ; touch ip.txt notes.txt url.txt cookies.txt
 ~~~
 
-<h2>Máquina de ataque</h2>
+<h2>Máquinas de ataque</h2>
 
 Para el ataque podríamos utilizar cualquier sistema operativo, por preferencia optaré por sistemas linux. Si estás comenzando, te sugiero comenzar con Kali Linux (o Parrot), puesto que ya cuentan con las herramientas de hacking más utilizadas y comunes (evitas estar instalando cada herramienta que vayas utilizando).
 
@@ -81,6 +81,8 @@ También he preparado un OVA con algunas modificaciones básicas que me gustan h
 
 **Kali 2020.4 (versión OSCP):** [https://drive.google.com/file/d/1n_CFhtQUdGu4O5DaLTp8n8jA0VizIKB0](https://drive.google.com/file/d/1n_CFhtQUdGu4O5DaLTp8n8jA0VizIKB0)
 
-Dice una leyenda, que si buscas en San Google `appnee vmware key` se cosiguen cosas ;)
+**Contraseña:** `kali`:`kali`
+
+Dice una leyenda, que si buscas en San Google `appnee vmware key` se consiguen cosas ;)
 
 <img src="/resources/output-images/escritorio-kali.png"/>

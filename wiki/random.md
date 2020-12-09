@@ -43,3 +43,12 @@ Por ejemplo:
 
 Herramienta que permite analizar un parámetro para enterder como modifica la entrada el sistema por detrás, es útil para la generación de payloads.
 
+<h2><b>Cheatsheets generales de pentesting</b></h2>
+
+[https://m0chan.github.io/2019/07/30/Windows-Notes-and-Cheatsheet.html](https://m0chan.github.io/2019/07/30/Windows-Notes-and-Cheatsheet.html)
+
+[https://github.com/Kitsun3Sec/Pentest-Cheat-Sheets](https://github.com/Kitsun3Sec/Pentest-Cheat-Sheets)
+
+[https://snovvcrash.rocks/cheatsheets/#linux2windows](https://snovvcrash.rocks/cheatsheets/#linux2windows)
+
+[https://www.ired.team/offensive-security-experiments/offensive-security-cheetsheets](https://www.ired.team/offensive-security-experiments/offensive-security-cheetsheets)

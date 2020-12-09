@@ -192,6 +192,10 @@ Content-Type: application/x-php --> Content-Type: image/png
 
 Bien conocido como 'LFI' o Local File Inclusión.
 
+**LFI a RFI aka LFI to RFI**
+
+[http://securityidiots.com/Web-Pentest/LFI](http://securityidiots.com/Web-Pentest/LFI)
+
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">Inclusión de ficheros remotos</div>
 </div>

@@ -107,7 +107,7 @@ El modus operandi de la automatización de pruebas con metasploit será el sigui
 * Ejecutamos el filtrado de los servicios con la opción '-R' para añadir los hosts del filtro como RHOSTS.
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">FTP</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">FTP - 21,20</div>
 </div>
 
 [https://www.offensive-security.com/metasploit-unleashed/scanner-ftp-auxiliary-modules/](https://www.offensive-security.com/metasploit-unleashed/scanner-ftp-auxiliary-modules/)
@@ -127,7 +127,7 @@ msf> services -p 21 -R
 ~~~
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SSH</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SSH - 22</div>
 </div>
 
 [https://charlesreid1.com/wiki/Metasploitable/SSH/Exploits](https://charlesreid1.com/wiki/Metasploitable/SSH/Exploits)
@@ -143,7 +143,7 @@ msf> services -p 22 -R
 ~~~
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">TELNET</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">TELNET - 23</div>
 </div>
 
 [https://www.offensive-security.com/metasploit-unleashed/scanner-telnet-auxiliary-modules/](https://www.offensive-security.com/metasploit-unleashed/scanner-telnet-auxiliary-modules/)
@@ -166,9 +166,14 @@ msf> services -p 23 -R
 ~~~
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">HTTP</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">HTTP - 80</div>
 </div>
 
+TODO
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">HTTPS - 443</div>
+</div>
 <div id="metasploit-heartbleed"><b>HeartBleed</b></div>
 
 * Auxiliares
@@ -182,13 +187,13 @@ msf> services -p 23 -R
 
 * RHOSTS
 ~~~
-services -p 23 -R
+services -p 443 -R
 ~~~
 
 Ver detección de heartbleed con nmap: <a href="enumeracion#nmap-heartbleed">Heartbleed con nmap</a>
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SMB</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">SMB - 445</div>
 </div>
 
 [https://www.offensive-security.com/metasploit-unleashed/scanner-smb-auxiliary-modules/](https://www.offensive-security.com/metasploit-unleashed/scanner-smb-auxiliary-modules/)
@@ -242,7 +247,20 @@ use auxiliary/admin/smb/samba_symlink/traversal
 ~~~
 
 <div class="grid">
-  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">MongoDB</div>
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">RDP - 3389</div>
+</div>
+
+**Bluekeep**
+
+~~~bash
+use auxiliary/scanner/rdp/cve_2019_0708_bluekeep_rce
+set RHOST 192.168.1.100
+set LHOST 192.168.1.150
+run
+~~~
+
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">MongoDB - 27017,27018</div>
 </div>
 
 [https://blog.rapid7.com/2016/07/28/pentesting-in-the-real-world-going-bananas-with-mongodb/](https://blog.rapid7.com/2016/07/28/pentesting-in-the-real-world-going-bananas-with-mongodb/)

@@ -155,3 +155,5 @@ echo 1 > /proc/sys/net/ipv4/ip_forward # Router mode
 [https://www.hackplayers.com/2018/05/taller-de-pivoting-tuneles-ssh.html](https://www.hackplayers.com/2018/05/taller-de-pivoting-tuneles-ssh.html)
 
 [https://orangecyberdefense.com/fr/insights/blog/ethical_hacking/etat-de-lart-du-pivoting-reseau-en-2019/](https://orangecyberdefense.com/fr/insights/blog/ethical_hacking/etat-de-lart-du-pivoting-reseau-en-2019/)
+
+[https://notsosecure.com/pwning-with-responder-a-pentesters-guide/](https://notsosecure.com/pwning-with-responder-a-pentesters-guide/)

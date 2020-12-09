@@ -28,6 +28,25 @@ nmap -v -Pn -T4 -A -p- --script=default,vuln -oA full-tcp 192.168.1.100 # Full T
 nmap -v -T4 -sU -A -p- --script=default,vuln -oA full-udp 192.168.1.100 # Full UDP + scrips + output (mi fav)
 ~~~
 
+**Mis básicos**
+
+Obtención de todos los puertos del sistema, filtrado de los puertos obtenidos, y lanzar scripts únicamente contra los puertos encontrados. Hacer esto aumenta la velocidad de la obtención de resultados. Realizar el escáner tanto por TCP como por UDP (empezar por TCP, para no morir esperando los resultados por UDP).
+
+~~~bash
+cd ~/j4ckmln/$red/$ip/nmap
+nmap -v -p- -oA quick-full-tcp -iL ../ip.txt # Obtener sólo todos los puertos abiertos
+nmap -v -Pn -p- -oA quick-full-tcp -iL ../ip.txt # Si parece no responder, este hace lo mismo, pero usando la opción `-Pn`, que permite realizar el escáner sin usar peticiones ICMP
+~~~
+
+Haciendo uso de uno de los scripts del repositorio [hackingpotions](https://github.com/j4ckmln/hackingpotions).
+
+~~~bash
+nmap -v -p $(bash ~/j4ckmln/tools/hackingpotions/gnmap-open-ports.sh quick-full-tcp.gnmap) -T4 -A --script=default,vuln -oA scripts-full-tcp -iL ../ip.txt 
+nmap -v -Pn -p $(bash ~/j4ckmln/tools/hackingpotions/gnmap-open-ports.sh quick-full-tcp.gnmap) -T4 -A --script=default,vuln -oA scripts-full-tcp -iL ../ip.txt # Versión sin ICMP
+~~~
+
+Repetir lo mismo vía UDP.
+
 **Descubrimiento de puertos**
 
 ~~~bash
@@ -376,45 +395,59 @@ Sistemas operativos comunes de acuerdo a la versión de SMB que utilice.
 </tr>
 </table>
 
+**smbmap**
+
+~~~
+smbmap -H 192.168.1.100
+smbmap -H 192.168.1.100 -R
+smbmap -H 192.168.1.100 -u <user> -p <password> -r 'C$\Users'
+smbmap -u <user> -p <password> -d workgroup -H 192.168.1.100
+smbmap -u <user> -p <password> -d ACME -H 192.168.1.100 -x 'net group "Domain Admins" /domain'
+~~~
+
+Para automatizar la utilización del smbmap en toda una red, se puede utilizar un bucle for en bash como el siguiente:
+
+~~~bash
+for i in {0..255}; do smbmap -H "192.168.1."$i -R; done
+~~~
+
+[https://github.com/ShawnDEvans/smbmap.git](https://github.com/ShawnDEvans/smbmap.git)
+
+**smbclient**
+
 * Lista recursos compartidos
 ~~~bash
-smbclient -L //<IP>
-smbclient -L <IP>
+smbclient -L //192.168.1.100
+smbclient -L 192.168.1.100
+smbclient -N -L \\\\192.168.1.100
+~~~
+
+Si queremos hacerlo para cada una de las ips de la red:
+~~~bash
+for i in {0..255}; do echo "192.168.1".$i ; smbclient -N -L \\\\192.168.1.$i; done
 ~~~
 
 * Conexión
+
+Si logramos acceder, bien sea porque no requiere credenciales, o porque se han obtenido las credenciales por otro medio, podemos acceder a las carpetas utilizanndo los siguientes comandos:
+
 ~~~bash
-smbclient \\\\x.x.x.x\\share
-smbclient -U “DOMAINNAME\Username” \\\\IP\\IPC$ password
+smbclient \\\\192.168.1.100\\share
+smbclient -U "DOMAINNAME\Username" \\\\192.168.1.100\\IPC$ password
 ~~~
 
 * Acceso sin contraseña
 ~~~bash
-smbclient -U “” -N \\\\IP\\IPC$
+smbclient -U "" -N \\\\192.168.1.100\\IPC$
 ~~~
+
+**nullinux**
 
 * Nullinux para usuarios y recursos compartidos
 ~~~bash
 nullinux -users -quick dc.domain.com
 nullinux -all 192.168.1.0-100
 nullinux -shares -U 'Domain\User' -P 'password' 192.168.1.100
-~~~
-
-~~~bash
-smb-enum-domains
-smb-enum-groups
-smb-enum-processes
-smb-enum-sessions
-smb-os-discovery
-smb-server-stats
-smb-system-info
-~~~
-
-~~~bash
-smb-ls # Intenta obtener información sobre ficheros compartidos
-smb-mbenum # Enumera información manejada por Windows Master Browser
-smb-print-text
-smb-security-mode # Obtener información sobre el nivel de seguridad de SMB
 ~~~
 
 **enum4linux**
@@ -433,15 +466,24 @@ enum4linux -o <IP> # Obtener información del SO
 enum4linux -i <IP> # Obtener información sobre las impresoras
 ~~~
 
-**smbmap**
+**Scripts de nmap**
 
-~~~
-python smbmap.py -u <user> -p <password> -d workgroup -H 192.168.1.100
-python smbmap.py -u <user> -p <password> -d ACME -H 192.168.1.100 -x 'net group "Domain Admins" /domain'
-python smbmap.py -H 192.168.1.100 -u <user> -p <password> -r 'C$\Users'
+~~~bash
+smb-enum-domains
+smb-enum-groups
+smb-enum-processes
+smb-enum-sessions
+smb-os-discovery
+smb-server-stats
+smb-system-info
 ~~~
 
-[https://github.com/ShawnDEvans/smbmap.git](https://github.com/ShawnDEvans/smbmap.git)
+~~~bash
+smb-ls # Intenta obtener información sobre ficheros compartidos
+smb-mbenum # Enumera información manejada por Windows Master Browser
+smb-print-text
+smb-security-mode # Obtener información sobre el nivel de seguridad de SMB
+~~~
 
 <p style="color:#872d17"><b>Danger! Puede tirar el servidor:</b></p>
 
@@ -536,6 +578,11 @@ ldapsearch -LLL -x -H ldap://<domain fqdn> -b '' -s base '(objectclass=*)'
 ldapsearch -h "<hostname>" -p "<puerto>" -x -b "ou=<OU>,DC=<DC>,DC=<DC>,DC=<DC>" -v
 ~~~
 
+<div class="grid">
+  <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">MSSQL - 1433</div>
+</div>
+
+[https://book.hacktricks.xyz/pentesting/pentesting-mssql-microsoft-sql-server](https://book.hacktricks.xyz/pentesting/pentesting-mssql-microsoft-sql-server)
 
 <div class="grid">
   <div class="cell cell--20 cell--lg-20 content" id="custom-table-header">RDP - 3389</div>
