@@ -21,7 +21,7 @@ header:
 nmap -sP 192.168.0.0/24 # Escáner Ping
 nmap -T4 -F 192.168.1.100 -vvv # Escáner rápido
 nmap -sV -T4 -O -F –version-light 192.168.1.100 -vvv # Escáner rápido más agresivo y que obtiene más información
-nmap -sS -sU -PN -p T:80,T:445,U:161 192.168.1.100 # Escáner TCP Syn y UDP 
+nmap -sS -sU -PN -p T:80,T:445,U:161 192.168.1.100 # Escáner TCP Syn y UDP
 nmap -v -Pn -n -T4 -sT -sV --version-intensity=5 --reason 192.168.1.100
 nmap -v -Pn -n -T4 -sT -p- --reason 192.168.1.100 # Escáner completo
 nmap -v -Pn -T4 -A -p- --script=default,vuln -oA full-tcp 192.168.1.100 # Full TCP + scrips + output (mi fav)
@@ -33,16 +33,16 @@ nmap -v -T4 -sU -A -p- --script=default,vuln -oA full-udp 192.168.1.100 # Full U
 Obtención de todos los puertos del sistema, filtrado de los puertos obtenidos, y lanzar scripts únicamente contra los puertos encontrados. Hacer esto aumenta la velocidad de la obtención de resultados. Realizar el escáner tanto por TCP como por UDP (empezar por TCP, para no morir esperando los resultados por UDP).
 
 ~~~bash
-cd ~/j4ckmln/$red/$ip/nmap
+cd ~/xtormin/$red/$ip/nmap
 nmap -v -p- -oA quick-full-tcp -iL ../ip.txt # Obtener sólo todos los puertos abiertos
 nmap -v -Pn -p- -oA quick-full-tcp -iL ../ip.txt # Si parece no responder, este hace lo mismo, pero usando la opción `-Pn`, que permite realizar el escáner sin usar peticiones ICMP
 ~~~
 
-Haciendo uso de uno de los scripts del repositorio [hackingpotions](https://github.com/j4ckmln/hackingpotions).
+Haciendo uso de uno de los scripts del repositorio [hackingpotions](https://github.com/xtormin/hackingpotions).
 
 ~~~bash
-nmap -v -p $(bash ~/j4ckmln/tools/hackingpotions/gnmap-open-ports.sh quick-full-tcp.gnmap) -T4 -A --script=default,vuln -oA scripts-full-tcp -iL ../ip.txt 
-nmap -v -Pn -p $(bash ~/j4ckmln/tools/hackingpotions/gnmap-open-ports.sh quick-full-tcp.gnmap) -T4 -A --script=default,vuln -oA scripts-full-tcp -iL ../ip.txt # Versión sin ICMP
+nmap -v -p $(bash ~/xtormin/tools/hackingpotions/gnmap-open-ports.sh quick-full-tcp.gnmap) -T4 -A --script=default,vuln -oA scripts-full-tcp -iL ../ip.txt
+nmap -v -Pn -p $(bash ~/xtormin/tools/hackingpotions/gnmap-open-ports.sh quick-full-tcp.gnmap) -T4 -A --script=default,vuln -oA scripts-full-tcp -iL ../ip.txt # Versión sin ICMP
 ~~~
 
 Repetir lo mismo vía UDP.
@@ -680,7 +680,7 @@ nitko -h http://domain.com
 ./gochopchop scan --url https://domain.com
 ./gochopchop scan --url https://domain.com --insecure
 ./gochopchop plugins --severity High
-./gochopchop  scan --url https://domain.com --json --csv 
+./gochopchop  scan --url https://domain.com --json --csv
 ~~~
 
 <div class="grid">

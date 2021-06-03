@@ -27,10 +27,10 @@ chmod 755 msfinstall && \
 
 También, cansada de instalar continuamente las herramientas en otro sistemas, he creado una herramienta que automatiza la instalación de las herramientas que más utilizo en las auditorías, por si prefieres instalarte todo el toolkit de hacking (obviamente incluye metasploit, la herramienta que ahora nos compete) :v:
 
-[https://github.com/j4ckmln/hackarsenaltoolkit](https://github.com/j4ckmln/hackarsenaltoolkit)
+[https://github.com/xtormin/hackarsenaltoolkit](https://github.com/xtormin/hackarsenaltoolkit)
 
 ~~~bash
-git clone https://github.com/j4ckmln/hackarsenaltoolkit.git
+git clone https://github.com/xtormin/hackarsenaltoolkit.git
 cd hackarsenaltoolkit ; sudo bash hackarsenal.sh
 ~~~
 
@@ -73,7 +73,7 @@ Crear un espacio de trabajo donde insertar la información del proyecto.
 
 ~~~bash
 msf> workspace -a test
-msf> workspace test 
+msf> workspace test
 ~~~
 
 Importar datos de ficheros xml de la información obtenida con nmap.
@@ -202,7 +202,7 @@ Ver detección de heartbleed con nmap: <a href="enumeracion#nmap-heartbleed">Hea
 
 * Auxiliares
 ~~~bash
-> use auxiliary/scanner/smb/pipe_auditor 
+> use auxiliary/scanner/smb/pipe_auditor
 > use auxiliary/scanner/smb/pipe_dcerpc_auditor
 > use auxiliary/scanner/smb/smb2 # Identifica si soporta SMB2
 > use auxiliary/scanner/smb/smb_enumshares
