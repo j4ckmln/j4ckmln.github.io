@@ -18,6 +18,7 @@ article_header:
   {%- for _section in page.data.sections -%}
     {%- include snippets/get-nav-url.html path=_section.background_image.src -%}
     {%- assign _url = __return -%}
+    <!-- THEME -->
     {%- if _section.theme == 'light' -%}
       <section class="hero hero--center hero--light" id="hero-{{ forloop.index }}"
     {%- elsif _section.theme == 'dark' -%}

@@ -121,8 +121,7 @@ layout: base
               {%- assign _header_style = _header_style | append: 'min-height:' | append: _article_header_height | append: ';' -%}
             {%- endif -%}
 
-            <div class="article__header--overlay">
-
+            <div onclick="goToHome()" class="article__header--overlay">
             {%- if _article_header_theme == 'light' -%}
               {%- if _article_header_align == 'center' -%}
                 <div class="hero hero--center hero--light overlay" style="{{ _header_style }}">
@@ -142,29 +141,6 @@ layout: base
                 <div class="hero overlay" style="{{ _header_style }}">
               {%- endif -%}
             {%- endif -%}
-                <div class="hero__content">
-                  {%- if _full_width == false -%}
-                    <div class ="main">
-                  {%- endif -%}
-                    {%- include article-info.html article=page semantic=false -%}
-                    {%- include article-header.html article=page semantic=false -%}
-                    {%- if page.excerpt -%}
-                      <p class="overlay__excerpt">{{ page.excerpt | strip_html | strip_newlines | strip | truncate: _article_header_excerpt_truncate }}</p>
-                    {%- endif -%}
-                    {%- if page.article_header.actions -%}
-                      <ul class="menu">
-                        {%- for _action in page.article_header.actions -%}
-                          {%- include snippets/get-nav-url.html path=_action.url -%}
-                          {%- assign _url = __return -%}
-                          {%- assign _type = _action.type | default: 'info' -%}
-                          <li><a class="button button--{{ _type }} button--rounded button--xl" href="{{ _url }}">{{ _action.text }}</a></li>
-                        {%- endfor -%}
-                      </ul>
-                    {%- endif -%}
-                  {%- if _full_width == false -%}
-                    </div>
-                  {%- endif -%}
-                </div>
               </div>
             </div>
           {%- elsif _article_header_type == 'cover' -%}
@@ -174,10 +150,7 @@ layout: base
               <img class="article__header--cover" src="{{ _header_image_src }}" />
             {%- endif -%}
           {%- endif -%}
-
         {%- endif -%}
-
-
         {%- if _full_width == false -%}
           <div class ="main">
         {%- endif -%}

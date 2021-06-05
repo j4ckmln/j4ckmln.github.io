@@ -33,7 +33,7 @@ timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for
 author:
   type      : # "person" (default), "organization"
   name      : Jennifer Torres
-  url       : https://xtormin.github.io
+  url       : https://xtormin.com
   avatar    : favicon.ico # path or url of avatar image (square)
   bio       : Analista de ciberseguridad
   email     :
